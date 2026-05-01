@@ -1,0 +1,151 @@
+import { Crown, Gift } from "lucide-react"
+
+export function Podium() {
+  return (
+    <section className="relative rounded-xl bg-[#0f0f0f] border border-[#1a1a1a] overflow-hidden mt-5">
+            
+      {/* Trapezoid gold pedestal - spans full card height */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <div
+          className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[26%]"
+          style={{
+            clipPath: "polygon(18% 0, 82% 0, 100% 100%, 0% 100%)",
+            background:
+              "linear-gradient(180deg, rgba(251,191,36,0.32) 0%, rgba(251,191,36,0.18) 55%, rgba(251,191,36,0.04) 100%)",
+          }}
+        />
+        <div
+          className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[26%]"
+          style={{
+            clipPath:
+              "polygon(18% 0, 18.6% 0, 0.6% 100%, 0% 100%, 0% 99.5%, 18% 0)",
+            background: "rgba(251,191,36,0.55)",
+          }}
+        />
+        <div
+          className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[26%]"
+          style={{
+            clipPath:
+              "polygon(81.4% 0, 82% 0, 100% 100%, 99.4% 100%, 81.4% 0)",
+            background: "rgba(251,191,36,0.55)",
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 px-6 md:px-12 pt-20 pb-10">
+        <div className="grid grid-cols-3 items-end gap-6 max-w-[900px] mx-auto">
+          {/* #2 */}
+          <PodiumCard
+            rank={2}
+            name="Towshif Rakib"
+            wagered="$6,500.23"
+            reward="$500.00"
+            avatar="/Default PFP.jpg"
+            ringColor="#c0c0c0"
+            wageredColor="#c0c0c0"
+            badgeColor="#9aa0b3"
+          />
+
+          {/* #1 - center */}
+          <div className="relative -mt-12 flex flex-col items-center">
+            {/* Crown */}
+            <Crown
+              className="absolute -top-16 left-1/2 -translate-x-1/2 w-12 h-12 text-[#fbbf24]"
+              fill="#fbbf24"
+            />
+            {/* Avatar in gold */}
+            <div className="relative">
+              <div className="w-[88px] h-[88px] rounded-md ring-4 ring-[#fbbf24] overflow-hidden bg-[#fbbf24]">
+                <img src="/Default PFP.jpg" alt="Prashant Deepak" className="w-full h-full object-cover" />
+              </div>
+            </div>
+            <div className="mt-3 text-white font-semibold">Prashant Deepak</div>
+            <div className="mt-1 text-[10px] font-bold tracking-[0.18em] text-[#888888]">
+              WAGERED
+            </div>
+            <div className="mt-1 text-2xl font-extrabold text-[#fbbf24]">$8,900.14</div>
+          <div className="mt-2 flex items-center gap-1 text-[#00ff87] font-semibold">
+        <Gift className="w-4 h-4" />
+        <span className="text-base">$1,000.00</span>
+      </div>
+
+          </div>
+
+          {/* #3 */}
+          <PodiumCard
+            rank={3}
+            name="Rohit Katariya"
+            wagered="$5,800.45"
+            reward="$250.00"
+            avatar="/Default PFP.jpg"
+            ringColor="#cd7f32"
+            wageredColor="#cd7f32"
+            badgeColor="#b45309"
+          />
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function PodiumCard({
+  rank,
+  name,
+  wagered,
+  reward,
+  avatar,
+  ringColor,
+  wageredColor,
+  badgeColor,
+}: {
+  rank: number
+  name: string
+  wagered: string
+  reward: string
+  avatar: string
+  ringColor: string
+  wageredColor: string
+  badgeColor: string
+}) {
+  return (
+    <div className="flex flex-col items-center">
+      {/* Hex badge */}
+      <div className="relative">
+        <HexBadge color={badgeColor} number={rank} />
+      </div>
+      <div
+        className="mt-3 w-[76px] h-[76px] rounded-md overflow-hidden"
+        style={{ boxShadow: `0 0 0 4px ${ringColor}` }}
+      >
+        <img src={avatar} alt={name} className="w-full h-full object-cover" />
+      </div>
+      <div className="mt-3 text-white font-semibold text-[15px]">{name}</div>
+      <div className="mt-1 text-[10px] font-bold tracking-[0.18em] text-[#888888]">
+        WAGERED
+      </div>
+      <div className="mt-1 text-xl font-extrabold" style={{ color: wageredColor }}>
+        {wagered}
+      </div>
+      <div className="mt-2 flex items-center gap-1 text-[#00ff87] font-semibold">
+        <Gift className="w-3 h-3" />
+        <span className="text-sm">{reward}</span>
+      </div>
+    </div>
+  )
+}
+
+function HexBadge({ color, number }: { color: string; number: number }) {
+  return (
+    <div className="relative w-9 h-10 grid place-items-center">
+      <svg viewBox="0 0 36 40" className="absolute inset-0 w-full h-full" aria-hidden="true">
+        <polygon
+          points="18,2 34,11 34,29 18,38 2,29 2,11"
+          fill={color}
+          stroke="rgba(0,0,0,0.25)"
+          strokeWidth="1"
+        />
+      </svg>
+      <span className="relative text-white font-bold text-sm">{number}</span>
+    </div>
+  )
+}
