@@ -4,7 +4,7 @@ import { ZyynLogo } from "@/components/zyyn-logo"
 
 export default function SignupPage() {
   return (
-    <main className="min-h-screen bg-[#0d1611] text-white flex flex-col">
+    <main className="min-h-screen text-white flex flex-col">
       <SiteHeader />
 
       <div className="flex-1 mx-auto max-w-[1360px] w-full px-6 py-12 flex items-center justify-center">
