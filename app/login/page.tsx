@@ -4,11 +4,11 @@ import { ZyynLogo } from "@/components/zyyn-logo"
 
 export default function LoginPage() {
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-white flex flex-col">
+    <main className="min-h-screen bg-[#0d1611] text-white flex flex-col">
       <SiteHeader />
 
       <div className="flex-1 mx-auto max-w-[1360px] w-full px-6 py-12 flex items-center justify-center">
-        <section className="w-full max-w-[440px] rounded-xl bg-[#0f0f0f] border border-[#1a1a1a] p-8">
+        <section className="w-full max-w-[440px] rounded-xl bg-[#112116] border border-[#1a2520] p-8">
           {/* Header */}
           <div className="flex flex-col items-center text-center mb-8">
             <ZyynLogo className="h-12 w-12 mb-4" />
@@ -32,9 +32,9 @@ export default function LoginPage() {
 
           {/* Divider */}
           <div className="my-6 flex items-center gap-3">
-            <div className="flex-1 h-px bg-[#1a1a1a]" />
+            <div className="flex-1 h-px bg-[#1a2520]" />
             <span className="text-[10px] font-bold tracking-[0.18em] text-[#555555]">OR</span>
-            <div className="flex-1 h-px bg-[#1a1a1a]" />
+            <div className="flex-1 h-px bg-[#1a2520]" />
           </div>
 
           {/* Signup link */}

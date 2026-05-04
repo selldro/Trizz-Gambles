@@ -95,7 +95,7 @@ export function LeaderboardView() {
   return (
     <>
       {/* Switcher */}
-      <section className="mt-5 rounded-xl bg-[#0f0f0f] border border-[#1a1a1a] p-2">
+      <section className="mt-5 rounded-xl bg-[#112116] border border-[#1a2520] p-2">
         <div className="grid grid-cols-2 gap-2">
           {tabs.map((tab) => {
             const Icon = tab.icon
@@ -104,14 +104,14 @@ export function LeaderboardView() {
               <button
                 key={tab.id}
                 onClick={() => setActive(tab.id)}
-                className={`flex items-center justify-center gap-2 py-3 rounded-md text-[12px] font-bold tracking-[0.18em] transition-colors ${
+                className={`flex items-center justify-center gap-2 py-3 px-2 rounded-md text-[11px] md:text-[12px] font-bold tracking-[0.14em] md:tracking-[0.18em] transition-colors ${
                   isActive
-                    ? "bg-gradient-to-b from-[#00ff87] to-[#00cc6a] text-black"
-                    : "bg-[#0a0a0a] text-[#888888] hover:text-white"
+                    ? "btn-3d-green text-black"
+                    : "bg-[#0d1611] text-[#888888] hover:text-white"
                 }`}
               >
                 <Icon className="w-4 h-4" />
-                {tab.label} LEADERBOARD
+                <span>{tab.label}<span className="hidden sm:inline"> LEADERBOARD</span></span>
               </button>
             )
           })}
@@ -120,12 +120,12 @@ export function LeaderboardView() {
 
       {/* Loading / error for cases */}
       {active === "cases" && loading && (
-        <div className="mt-5 rounded-xl bg-[#0f0f0f] border border-[#1a1a1a] p-6 text-center text-[#888888] text-sm">
+        <div className="mt-5 rounded-xl bg-[#112116] border border-[#1a2520] p-6 text-center text-[#888888] text-sm">
           Loading cases leaderboard...
         </div>
       )}
       {active === "cases" && error && (
-        <div className="mt-5 rounded-xl bg-[#0f0f0f] border border-red-500/30 p-6 text-center text-red-400 text-sm">
+        <div className="mt-5 rounded-xl bg-[#112116] border border-red-500/30 p-6 text-center text-red-400 text-sm">
           {error}
         </div>
       )}

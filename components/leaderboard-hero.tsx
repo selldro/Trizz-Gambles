@@ -9,11 +9,11 @@ const timer = [
 
 export function LeaderboardHero() {
   return (
-    <section className="relative rounded-xl bg-[#0f0f0f] border border-[#1a1a1a] overflow-hidden">
-            <div className="relative grid md:grid-cols-[1fr_auto] gap-8 p-8 md:p-10">
+    <section className="relative rounded-xl bg-[#112116] border border-[#1a2520] overflow-hidden">
+            <div className="relative grid lg:grid-cols-[1fr_auto] gap-6 md:gap-8 p-5 md:p-10">
         {/* Left */}
         <div>
-          <h1 className="text-5xl md:text-[56px] font-black tracking-tight text-white leading-none italic font-[family-name:var(--font-heading)]">
+          <h1 className="text-4xl md:text-[56px] font-black tracking-tight text-white leading-none italic font-[family-name:var(--font-heading)]">
             LEADERBOARD
           </h1>
           <p className="mt-5 text-sm font-bold tracking-wide">
@@ -27,16 +27,16 @@ export function LeaderboardHero() {
         </div>
 
         {/* Right - prize pool & timer */}
-        <div className="md:min-w-[340px] md:pl-10 md:border-l md:border-[#1a1a1a]">
+        <div className="min-w-0 lg:min-w-[340px] lg:pl-10 lg:border-l lg:border-[#1a2520] pt-6 lg:pt-0 border-t lg:border-t-0 border-[#1a2520]">
           <div className="flex items-center gap-3">
-            <div className="grid place-items-center w-11 h-11 rounded-md bg-[#1a1a1a] border border-[#1a1a1a]">
+            <div className="shrink-0 grid place-items-center w-11 h-11 rounded-md bg-[#1a2520] border border-[#1a2520]">
               <Trophy className="w-6 h-6 text-[#00ff87]" fill="#00ff87" />
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="text-[11px] font-bold tracking-[0.18em] text-[#888888]">
                 MONTHLY PRIZE POOL
               </div>
-              <div className="text-2xl font-extrabold text-[#00ff87]">$10,000.00</div>
+              <div className="text-xl md:text-2xl font-extrabold text-[#00ff87]">$10,000.00</div>
             </div>
           </div>
 
@@ -47,10 +47,10 @@ export function LeaderboardHero() {
             {timer.map((t) => (
               <div
                 key={t.label}
-                className="rounded-md bg-[#1a1a1a] border border-[#1a1a1a] py-3 text-center"
+                className="min-w-0 rounded-md bg-[#1a2520] border border-[#1a2520] py-2.5 md:py-3 px-1 text-center"
               >
-                <div className="text-2xl font-extrabold text-white leading-none">{t.value}</div>
-                <div className="mt-1 text-[10px] font-bold tracking-[0.18em] text-[#888888]">
+                <div className="text-lg md:text-2xl font-extrabold text-white leading-none">{t.value}</div>
+                <div className="mt-1 text-[9px] md:text-[10px] font-bold tracking-[0.14em] md:tracking-[0.18em] text-[#888888]">
                   {t.label}
                 </div>
               </div>

@@ -26,7 +26,7 @@ export function Podium({
   const p2 = second ?? defaultEntries.second
   const p3 = third ?? defaultEntries.third
   return (
-    <section className="relative rounded-xl bg-[#0f0f0f] border border-[#1a1a1a] overflow-hidden mt-5">
+    <section className="relative rounded-xl bg-[#112116] border border-[#1a2520] overflow-hidden mt-5">
             
       {/* Trapezoid gold pedestal - spans full card height */}
       <div className="pointer-events-none absolute inset-0 z-0">
@@ -56,8 +56,8 @@ export function Podium({
         />
       </div>
 
-      <div className="relative z-10 px-6 md:px-12 pt-20 pb-10">
-        <div className="grid grid-cols-3 items-end gap-6 max-w-[900px] mx-auto">
+      <div className="relative z-10 px-3 md:px-12 pt-16 md:pt-20 pb-8 md:pb-10">
+        <div className="grid grid-cols-3 items-end gap-2 md:gap-6 max-w-[900px] mx-auto">
           {/* #2 */}
           <PodiumCard
             rank={2}
@@ -71,26 +71,26 @@ export function Podium({
           />
 
           {/* #1 - center */}
-          <div className="relative -mt-12 flex flex-col items-center">
+          <div className="relative -mt-8 md:-mt-12 flex flex-col items-center text-center">
             {/* Crown */}
             <Crown
-              className="absolute -top-16 left-1/2 -translate-x-1/2 w-12 h-12 text-[#fbbf24]"
+              className="absolute -top-10 md:-top-16 left-1/2 -translate-x-1/2 w-8 h-8 md:w-12 md:h-12 text-[#fbbf24]"
               fill="#fbbf24"
             />
             {/* Avatar in gold */}
             <div className="relative">
-              <div className="w-[88px] h-[88px] rounded-md ring-4 ring-[#fbbf24] overflow-hidden bg-[#fbbf24]">
+              <div className="w-[64px] h-[64px] md:w-[88px] md:h-[88px] rounded-md ring-2 md:ring-4 ring-[#fbbf24] overflow-hidden bg-[#fbbf24]">
                 <img src={p1.avatar} alt={p1.name} className="w-full h-full object-cover" />
               </div>
             </div>
-            <div className="mt-3 text-white font-semibold">{p1.name}</div>
-            <div className="mt-1 text-[10px] font-bold tracking-[0.18em] text-[#888888]">
+            <div className="mt-2 md:mt-3 text-white font-semibold text-[12px] md:text-base truncate max-w-full">{p1.name}</div>
+            <div className="mt-1 text-[9px] md:text-[10px] font-bold tracking-[0.18em] text-[#888888]">
               WAGERED
             </div>
-            <div className="mt-1 text-2xl font-extrabold text-[#fbbf24]">{p1.wagered}</div>
-          <div className="mt-2 flex items-center gap-1 text-[#00ff87] font-semibold">
-        <Gift className="w-4 h-4" />
-        <span className="text-base">{p1.reward}</span>
+            <div className="mt-1 text-base md:text-2xl font-extrabold text-[#fbbf24]">{p1.wagered}</div>
+          <div className="mt-1 md:mt-2 flex items-center gap-1 text-[#00ff87] font-semibold">
+        <Gift className="w-3 h-3 md:w-4 md:h-4" />
+        <span className="text-xs md:text-base">{p1.reward}</span>
       </div>
 
           </div>
@@ -132,27 +132,27 @@ function PodiumCard({
   badgeColor: string
 }) {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center text-center">
       {/* Hex badge */}
       <div className="relative">
         <HexBadge color={badgeColor} number={rank} />
       </div>
       <div
-        className="mt-3 w-[76px] h-[76px] rounded-md overflow-hidden"
-        style={{ boxShadow: `0 0 0 4px ${ringColor}` }}
+        className="mt-2 md:mt-3 w-[52px] h-[52px] md:w-[76px] md:h-[76px] rounded-md overflow-hidden"
+        style={{ boxShadow: `0 0 0 3px ${ringColor}` }}
       >
         <img src={avatar} alt={name} className="w-full h-full object-cover" />
       </div>
-      <div className="mt-3 text-white font-semibold text-[15px]">{name}</div>
-      <div className="mt-1 text-[10px] font-bold tracking-[0.18em] text-[#888888]">
+      <div className="mt-2 md:mt-3 text-white font-semibold text-[11px] md:text-[15px] truncate max-w-full">{name}</div>
+      <div className="mt-1 text-[9px] md:text-[10px] font-bold tracking-[0.18em] text-[#888888]">
         WAGERED
       </div>
-      <div className="mt-1 text-xl font-extrabold" style={{ color: wageredColor }}>
+      <div className="mt-1 text-sm md:text-xl font-extrabold" style={{ color: wageredColor }}>
         {wagered}
       </div>
-      <div className="mt-2 flex items-center gap-1 text-[#00ff87] font-semibold">
+      <div className="mt-1 md:mt-2 flex items-center gap-1 text-[#00ff87] font-semibold">
         <Gift className="w-3 h-3" />
-        <span className="text-sm">{reward}</span>
+        <span className="text-[11px] md:text-sm">{reward}</span>
       </div>
     </div>
   )

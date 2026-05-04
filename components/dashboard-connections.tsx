@@ -6,7 +6,7 @@ const sites = [
 
 export function DashboardConnections() {
   return (
-    <section className="rounded-xl bg-[#0f0f0f] border border-[#1a1a1a] p-6 mt-5">
+    <section className="rounded-xl bg-[#112116] border border-[#1a2520] p-6 mt-5">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-5">
         <h2 className="text-[14px] font-bold tracking-[0.18em] text-white">SITE CONNECTIONS</h2>
@@ -33,16 +33,16 @@ export function DashboardConnections() {
         {sites.map((site) => (
           <div
             key={site.id}
-            className="rounded-md bg-[#0a0a0a] border border-[#1a1a1a] overflow-hidden"
+            className="rounded-md bg-[#0d1611] border border-[#1a2520] overflow-hidden"
           >
             <div className="px-5 pt-4 pb-3">
               <div className="text-2xl font-black italic tracking-tight text-white leading-none uppercase">{site.name}</div>
             </div>
-            <div className="flex items-center justify-between px-5 py-3 border-t border-[#1a1a1a]">
+            <div className="flex items-center justify-between px-5 py-3 border-t border-[#1a2520]">
               <span className="text-[11px] font-bold tracking-[0.18em] text-[#888888]">
                 NOT CONNECTED
               </span>
-              <button className="px-4 py-1.5 rounded-md bg-gradient-to-b from-[#00ff87] to-[#00cc6a] hover:opacity-90 transition-opacity text-black text-[11px] font-bold tracking-[0.18em]">
+              <button className="px-4 py-1.5 rounded-md btn-3d-green hover:opacity-90 transition-opacity text-black text-[11px] font-bold tracking-[0.18em]">
                 CONNECT
               </button>
             </div>

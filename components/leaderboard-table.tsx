@@ -29,9 +29,9 @@ export function LeaderboardTable({ rows }: { rows?: Row[] } = {}) {
   const data = rows ?? defaultRows
 
   return (
-    <section className="rounded-xl bg-[#0f0f0f] border border-[#1a1a1a] p-5">
+    <section className="rounded-xl bg-[#112116] border border-[#1a2520] p-3 md:p-5">
       {/* Tabs + search */}
-      <div className="flex items-center justify-between gap-4 flex-wrap">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4">
         <div className="flex items-center gap-2">
           {tabs.map((t) => {
             const isActive = active === t
@@ -39,10 +39,10 @@ export function LeaderboardTable({ rows }: { rows?: Row[] } = {}) {
               <button
                 key={t}
                 onClick={() => setActive(t)}
-                className={`px-5 py-2 rounded-md text-[12px] font-bold tracking-[0.18em] transition-colors border ${
+                className={`px-5 py-2 rounded-md text-[12px] font-bold tracking-[0.18em] ${
                   isActive
-                    ? "bg-gradient-to-b from-[#00ff87] to-[#00cc6a] border border-[#00ff87] text-black"
-                    : "border-transparent text-[#888888] hover:text-white"
+                    ? "btn-3d-green"
+                    : "border-b-4 border-transparent text-[#888888] hover:text-white transition-colors"
                 }`}
               >
                 {t}
@@ -55,37 +55,37 @@ export function LeaderboardTable({ rows }: { rows?: Row[] } = {}) {
           <input
             type="text"
             placeholder="Search player..."
-            className="w-[260px] rounded-md bg-[#1a1a1a] border border-[#1a1a1a] pl-3 pr-9 py-2 text-sm text-white placeholder:text-[#888888] focus:outline-none focus:border-[#00ff87]"
+            className="w-full md:w-[260px] rounded-md bg-[#1a2520] border border-[#1a2520] pl-3 pr-9 py-2 text-sm text-white placeholder:text-[#888888] focus:outline-none focus:border-[#00ff87]"
           />
           <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888]" />
         </div>
       </div>
 
       {/* Header */}
-      <div className="mt-5 grid grid-cols-[80px_1fr_1fr_1fr] items-center px-3 py-3 rounded-md bg-[#1a1a1a] border border-[#1a1a1a] text-[11px] font-bold tracking-[0.18em] text-[#00ff87]">
-        <div>RANK</div>
+      <div className="mt-4 md:mt-5 grid grid-cols-[40px_1fr_auto_auto] md:grid-cols-[80px_1fr_1fr_1fr] items-center gap-2 md:gap-0 px-2 md:px-3 py-2 md:py-3 rounded-md bg-[#1a2520] border border-[#1a2520] text-[10px] md:text-[11px] font-bold tracking-[0.18em] text-[#00ff87]">
+        <div>#</div>
         <div>PLAYER</div>
-        <div className="text-right pr-12">WAGERED</div>
+        <div className="text-right md:pr-12">WAGERED</div>
         <div className="text-right">REWARD</div>
       </div>
 
       {/* Rows */}
-      <ul className="mt-2 divide-y divide-[#1a1a1a]">
+      <ul className="mt-2 divide-y divide-[#1a2520]">
         {data.map((r) => (
           <li
             key={r.rank}
-            className="grid grid-cols-[80px_1fr_1fr_1fr] items-center px-3 py-3 text-sm"
+            className="grid grid-cols-[40px_1fr_auto_auto] md:grid-cols-[80px_1fr_1fr_1fr] items-center gap-2 md:gap-0 px-2 md:px-3 py-3 text-xs md:text-sm"
           >
             <div className="text-white font-semibold">{r.rank}</div>
-            <div className="flex items-center gap-3">
-              <span className="block w-8 h-8 rounded-md overflow-hidden bg-[#1a1a1a]">
+            <div className="flex items-center gap-2 md:gap-3 min-w-0">
+              <span className="shrink-0 block w-7 h-7 md:w-8 md:h-8 rounded-md overflow-hidden bg-[#1a2520]">
                 <img src={r.avatar} alt={r.name} className="w-full h-full object-cover" />
               </span>
-              <span className="text-white">{r.name}</span>
+              <span className="text-white truncate">{r.name}</span>
             </div>
-            <div className="text-right pr-12 text-white">{r.wagered}</div>
-            <div className="text-right flex items-center justify-end gap-2 text-[#00ff87] font-semibold">
-              <Gift className="w-4 h-4" />
+            <div className="text-right md:pr-12 text-white">{r.wagered}</div>
+            <div className="text-right flex items-center justify-end gap-1 md:gap-2 text-[#00ff87] font-semibold">
+              <Gift className="w-3.5 h-3.5 md:w-4 md:h-4" />
               <span>{r.reward}</span>
             </div>
           </li>

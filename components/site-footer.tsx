@@ -3,7 +3,7 @@ import { ZyynLogo } from "./zyyn-logo"
 
 export function SiteFooter() {
   return (
-    <footer className="mt-10 border-t border-[#1a1a1a] bg-[#0a0a0a]">
+    <footer className="mt-10 border-t border-[#1a2520] bg-[#0d1611]">
       <div className="mx-auto max-w-[1360px] px-6 py-10 grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr_1fr_auto] gap-8">
         {/* Brand */}
         <div>

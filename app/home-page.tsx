@@ -52,10 +52,10 @@ export default function HomePage() {
           </h1>
           
           <div className="flex justify-center gap-4">
-            <button className="px-8 py-3 rounded-md bg-gradient-to-b from-[#00ff87] to-[#00cc6a] border border-[#00ff87] hover:opacity-90 transition-opacity text-black text-[13px] font-bold tracking-[0.14em]">
+            <button className="px-8 py-3 rounded-md btn-3d-green border border-[#00ff87] hover:opacity-90 transition-opacity text-black text-[13px] font-bold tracking-[0.14em]">
               GET STARTED
             </button>
-            <button className="px-8 py-3 rounded-md bg-gradient-to-b from-[#00ff87] to-[#00cc6a] border border-[#00ff87] hover:opacity-90 transition-opacity text-black text-[12px] font-bold tracking-[0.18em]">
+            <button className="px-8 py-3 rounded-md btn-3d-green border border-[#00ff87] hover:opacity-90 transition-opacity text-black text-[12px] font-bold tracking-[0.18em]">
               LEADERBOARD
             </button>
           </div>
@@ -67,7 +67,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-[1360px]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Leaderboard Card */}
-            <div className="rounded-xl bg-[#0f0f0f] border border-[#1a1a1a] p-6">
+            <div className="rounded-xl bg-[#112116] border border-[#1a2520] p-6">
               <div className="flex items-center gap-3 mb-4">
                 <Crown className="w-8 h-8 text-[#fbbf24]" />
                 <h2 className="text-2xl font-bold">LEADERBOARD</h2>
@@ -75,13 +75,13 @@ export default function HomePage() {
               <p className="text-[#888888] mb-6">
                 Compete with other players and climb the rankings to win exclusive prizes
               </p>
-              <button className="px-6 py-2 rounded-md bg-gradient-to-b from-[#00ff87] to-[#00cc6a] border border-[#00ff87] hover:opacity-90 transition-opacity text-black text-[13px] font-bold tracking-[0.14em]">
+              <button className="px-6 py-2 rounded-md btn-3d-green border border-[#00ff87] hover:opacity-90 transition-opacity text-black text-[13px] font-bold tracking-[0.14em]">
                 VIEW
               </button>
             </div>
 
             {/* Discord Card */}
-            <div className="rounded-xl bg-[#0f0f0f] border border-[#1a1a1a] p-6">
+            <div className="rounded-xl bg-[#112116] border border-[#1a2520] p-6">
               <div className="flex items-center gap-3 mb-4">
                 <Crown className="w-8 h-8 text-[#00ff87]" />
                 <h2 className="text-2xl font-bold">DISCORD</h2>
@@ -89,7 +89,7 @@ export default function HomePage() {
               <p className="text-[#888888] mb-6">
                 Join our Discord for exclusive giveaways and prizes
               </p>
-              <button className="px-6 py-2 rounded-md bg-gradient-to-b from-[#00ff87] to-[#00cc6a] border border-[#00ff87] hover:opacity-90 transition-opacity text-black text-[13px] font-bold tracking-[0.14em]">
+              <button className="px-6 py-2 rounded-md btn-3d-green border border-[#00ff87] hover:opacity-90 transition-opacity text-black text-[13px] font-bold tracking-[0.14em]">
                 JOIN COMMUNITY
               </button>
             </div>
@@ -102,7 +102,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-[1360px]">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {socialPlatforms.map((platform, index) => (
-              <div key={index} className="rounded-xl bg-[#0f0f0f] border border-[#1a1a1a] p-4 text-center">
+              <div key={index} className="rounded-xl bg-[#112116] border border-[#1a2520] p-4 text-center">
                 <platform.icon className="w-12 h-12 mx-auto mb-3 text-white" />
                 <h3 className="font-bold mb-1">TRIZZGAMBLES</h3>
                 <p className="text-[#888888] text-sm mb-3">{platform.name}</p>

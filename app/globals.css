@@ -5,17 +5,17 @@
 
 :root {
   /* Zyyn palette */
-  --background: #0a0a0a;
+  --background: #0d1611;
   --foreground: #ffffff;
 
-  --card: #0f0f0f;
-  --card-2: #1a1a1a;
+  --card: #112116;
+  --card-2: #1a2520;
   --card-foreground: #ffffff;
 
-  --border: #1a1a1a;
-  --border-2: #252525;
+  --border: #1a2520;
+  --border-2: #253028;
 
-  --muted: #1a1a1a;
+  --muted: #1a2520;
   --muted-foreground: #888888;
 
   --primary: #00ff87;
@@ -77,5 +77,27 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* 3D primary green button - 3D edge integrated into the button height */
+  .btn-3d-green {
+    background-image: linear-gradient(to bottom, #00ff87, #00cc6a);
+    color: #000;
+    border-bottom: 4px solid #007a3d;
+    box-sizing: border-box;
+    transition: filter 80ms ease, transform 80ms ease, border-bottom-width 80ms ease, padding-top 80ms ease;
+  }
+  .btn-3d-green:hover {
+    filter: brightness(1.05);
+  }
+  .btn-3d-green:active {
+    border-bottom-width: 1px;
+    padding-top: 3px;
+  }
+  .btn-3d-green:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
   }
 }

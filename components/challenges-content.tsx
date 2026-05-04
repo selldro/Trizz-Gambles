@@ -89,9 +89,9 @@ export function ChallengesContent() {
   return (
     <div className="mt-5 space-y-5">
       {/* Search + Tabs */}
-      <section className="rounded-xl bg-[#0f0f0f] border border-[#1a1a1a] p-6">
+      <section className="rounded-xl bg-[#112116] border border-[#1a2520] p-4 md:p-6">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div className="flex items-center gap-2 rounded-md bg-[#0a0a0a] border border-[#1a1a1a] px-4 py-2 max-w-sm w-full">
+          <div className="flex items-center gap-2 rounded-md bg-[#0d1611] border border-[#1a2520] px-4 py-2 max-w-sm w-full">
             <Search className="w-4 h-4 text-[#555555]" />
             <input
               type="text"
@@ -102,7 +102,7 @@ export function ChallengesContent() {
             />
           </div>
 
-          <div className="flex items-center gap-1 rounded-md bg-[#0a0a0a] border border-[#1a1a1a] p-1">
+          <div className="flex items-center gap-1 rounded-md bg-[#0d1611] border border-[#1a2520] p-1 overflow-x-auto">
             {([
               { key: "all", label: `ALL ${challenges.length}` },
               { key: "active", label: `ACTIVE ${activeCount}` },
@@ -129,22 +129,22 @@ export function ChallengesContent() {
           <span className="text-[12px] font-bold tracking-[0.16em] text-[#888888]">
             ALL CHALLENGES
           </span>
-          <span className="text-[11px] font-bold tracking-[0.16em] text-[#555555] bg-[#1a1a1a] px-2 py-0.5 rounded">
+          <span className="text-[11px] font-bold tracking-[0.16em] text-[#555555] bg-[#1a2520] px-2 py-0.5 rounded">
             {filtered.length} Results
           </span>
         </div>
       </section>
 
       {/* Cards Grid */}
-      <section className="rounded-xl bg-[#0f0f0f] border border-[#1a1a1a] p-6">
+      <section className="rounded-xl bg-[#112116] border border-[#1a2520] p-4 md:p-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {filtered.map((c) => (
             <div
               key={c.id}
-              className="rounded-md bg-[#0a0a0a] border border-[#1a1a1a] overflow-hidden flex flex-col"
+              className="rounded-md bg-[#0d1611] border border-[#1a2520] overflow-hidden flex flex-col"
             >
               {/* Image area */}
-              <div className="relative h-40 bg-[#0a0a0a] overflow-hidden">
+              <div className="relative h-40 bg-[#0d1611] overflow-hidden">
                 <img src={c.image} alt={c.name} className="w-full h-full object-cover" />
             </div>
 
@@ -155,15 +155,15 @@ export function ChallengesContent() {
 
               {/* Stats row */}
               <div className="grid grid-cols-3 gap-2 mb-4">
-                <div className="rounded-md bg-[#0a0a0a] border border-[#1a1a1a] py-2 text-center">
+                <div className="rounded-md bg-[#0d1611] border border-[#1a2520] py-2 text-center">
                   <div className="text-[9px] font-bold tracking-[0.16em] text-[#555555]">PRIZE</div>
                   <div className="text-[14px] font-extrabold text-[#00ff87]">{c.prize}</div>
                 </div>
-                <div className="rounded-md bg-[#0a0a0a] border border-[#1a1a1a] py-2 text-center">
+                <div className="rounded-md bg-[#0d1611] border border-[#1a2520] py-2 text-center">
                   <div className="text-[9px] font-bold tracking-[0.16em] text-[#555555]">MIN BET</div>
                   <div className="text-[14px] font-extrabold text-[#00ff87]">{c.minBet}</div>
                 </div>
-                <div className="rounded-md bg-[#0a0a0a] border border-[#1a1a1a] py-2 text-center">
+                <div className="rounded-md bg-[#0d1611] border border-[#1a2520] py-2 text-center">
                   <div className="text-[9px] font-bold tracking-[0.16em] text-[#555555]">TARGET</div>
                   <div className="text-[14px] font-extrabold text-[#00ff87]">{c.target}</div>
                 </div>
@@ -177,7 +177,7 @@ export function ChallengesContent() {
                 </div>
                 <span className="text-[11px] text-[#888888]">{c.claimedPercent}%</span>
               </div>
-              <div className="w-full bg-[#1a1a1a] rounded-full h-1.5 mb-3 overflow-hidden">
+              <div className="w-full bg-[#1a2520] rounded-full h-1.5 mb-3 overflow-hidden">
                 <div
                   className="h-full bg-[#00ff87] rounded-full"
                   style={{ width: `${c.claimedPercent}%` }}
@@ -193,7 +193,7 @@ export function ChallengesContent() {
                       {c.winners.map((w, i) => (
                         <span
                           key={i}
-                          className="bg-[#1a1a1a] border border-[#1a1a1a] px-2 py-0.5 rounded text-[10px] font-bold text-[#00ff87]"
+                          className="bg-[#1a2520] border border-[#1a2520] px-2 py-0.5 rounded text-[10px] font-bold text-[#00ff87]"
                         >
                           {w}
                         </span>
@@ -208,13 +208,13 @@ export function ChallengesContent() {
               {/* Button */}
               <div className="mt-auto">
                 {c.status === "active" ? (
-                  <button className="w-full py-2.5 rounded-md bg-gradient-to-b from-[#00ff87] to-[#00cc6a] hover:opacity-90 transition-opacity text-black text-[12px] font-bold tracking-[0.18em]">
+                  <button className="w-full py-2.5 rounded-md btn-3d-green hover:opacity-90 transition-opacity text-black text-[12px] font-bold tracking-[0.18em]">
                     PLAY NOW
                   </button>
                 ) : (
                   <button
                     disabled
-                    className="w-full py-2.5 rounded-md bg-[#1a1a1a] text-[#555555] text-[12px] font-bold tracking-[0.18em] cursor-not-allowed"
+                    className="w-full py-2.5 rounded-md bg-[#1a2520] text-[#555555] text-[12px] font-bold tracking-[0.18em] cursor-not-allowed"
                   >
                     CHALLENGE ENDED
                   </button>
