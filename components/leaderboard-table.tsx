@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Search, Gift } from "lucide-react"
 
-type Row = {
+export type Row = {
   rank: number
   name: string
   avatar: string
@@ -12,7 +12,7 @@ type Row = {
 }
 
 const A = "/Default PFP.jpg"
-const rows: Row[] = [
+const defaultRows: Row[] = [
   { rank: 4, name: "Miles Esther", avatar: A, wagered: "$4,320.00", reward: "$200.00" },
   { rank: 5, name: "Aiden Ghost", avatar: A, wagered: "$3,210.45", reward: "$150.00" },
   { rank: 6, name: "CodeRed", avatar: A, wagered: "$2,890.12", reward: "$100.00" },
@@ -24,8 +24,9 @@ const rows: Row[] = [
 
 const tabs = ["DAILY", "WEEKLY", "MONTHLY"] as const
 
-export function LeaderboardTable() {
+export function LeaderboardTable({ rows }: { rows?: Row[] } = {}) {
   const [active, setActive] = useState<(typeof tabs)[number]>("DAILY")
+  const data = rows ?? defaultRows
 
   return (
     <section className="rounded-xl bg-[#0f0f0f] border border-[#1a1a1a] p-5">
@@ -70,7 +71,7 @@ export function LeaderboardTable() {
 
       {/* Rows */}
       <ul className="mt-2 divide-y divide-[#1a1a1a]">
-        {rows.map((r) => (
+        {data.map((r) => (
           <li
             key={r.rank}
             className="grid grid-cols-[80px_1fr_1fr_1fr] items-center px-3 py-3 text-sm"

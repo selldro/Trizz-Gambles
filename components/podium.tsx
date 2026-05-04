@@ -1,6 +1,30 @@
 import { Crown, Gift } from "lucide-react"
 
-export function Podium() {
+export type PodiumEntry = {
+  name: string
+  avatar: string
+  wagered: string
+  reward: string
+}
+
+const defaultEntries: { first: PodiumEntry; second: PodiumEntry; third: PodiumEntry } = {
+  first: { name: "Prashant Deepak", avatar: "/Default PFP.jpg", wagered: "$8,900.14", reward: "$1,000.00" },
+  second: { name: "Towshif Rakib", avatar: "/Default PFP.jpg", wagered: "$6,500.23", reward: "$500.00" },
+  third: { name: "Rohit Katariya", avatar: "/Default PFP.jpg", wagered: "$5,800.45", reward: "$250.00" },
+}
+
+export function Podium({
+  first,
+  second,
+  third,
+}: {
+  first?: PodiumEntry
+  second?: PodiumEntry
+  third?: PodiumEntry
+} = {}) {
+  const p1 = first ?? defaultEntries.first
+  const p2 = second ?? defaultEntries.second
+  const p3 = third ?? defaultEntries.third
   return (
     <section className="relative rounded-xl bg-[#0f0f0f] border border-[#1a1a1a] overflow-hidden mt-5">
             
@@ -37,10 +61,10 @@ export function Podium() {
           {/* #2 */}
           <PodiumCard
             rank={2}
-            name="Towshif Rakib"
-            wagered="$6,500.23"
-            reward="$500.00"
-            avatar="/Default PFP.jpg"
+            name={p2.name}
+            wagered={p2.wagered}
+            reward={p2.reward}
+            avatar={p2.avatar}
             ringColor="#c0c0c0"
             wageredColor="#c0c0c0"
             badgeColor="#9aa0b3"
@@ -56,17 +80,17 @@ export function Podium() {
             {/* Avatar in gold */}
             <div className="relative">
               <div className="w-[88px] h-[88px] rounded-md ring-4 ring-[#fbbf24] overflow-hidden bg-[#fbbf24]">
-                <img src="/Default PFP.jpg" alt="Prashant Deepak" className="w-full h-full object-cover" />
+                <img src={p1.avatar} alt={p1.name} className="w-full h-full object-cover" />
               </div>
             </div>
-            <div className="mt-3 text-white font-semibold">Prashant Deepak</div>
+            <div className="mt-3 text-white font-semibold">{p1.name}</div>
             <div className="mt-1 text-[10px] font-bold tracking-[0.18em] text-[#888888]">
               WAGERED
             </div>
-            <div className="mt-1 text-2xl font-extrabold text-[#fbbf24]">$8,900.14</div>
+            <div className="mt-1 text-2xl font-extrabold text-[#fbbf24]">{p1.wagered}</div>
           <div className="mt-2 flex items-center gap-1 text-[#00ff87] font-semibold">
         <Gift className="w-4 h-4" />
-        <span className="text-base">$1,000.00</span>
+        <span className="text-base">{p1.reward}</span>
       </div>
 
           </div>
@@ -74,10 +98,10 @@ export function Podium() {
           {/* #3 */}
           <PodiumCard
             rank={3}
-            name="Rohit Katariya"
-            wagered="$5,800.45"
-            reward="$250.00"
-            avatar="/Default PFP.jpg"
+            name={p3.name}
+            wagered={p3.wagered}
+            reward={p3.reward}
+            avatar={p3.avatar}
             ringColor="#cd7f32"
             wageredColor="#cd7f32"
             badgeColor="#b45309"
