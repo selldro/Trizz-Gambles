@@ -4,10 +4,10 @@ import { Info, Trophy } from "lucide-react"
 import { useEffect, useState } from "react"
 
 const staticTimer = [
-  { value: "12", label: "DAYS" },
-  { value: "07", label: "HRS" },
-  { value: "32", label: "MINS" },
-  { value: "18", label: "SECS" },
+  { value: "00", label: "DAYS" },
+  { value: "00", label: "HRS" },
+  { value: "00", label: "MINS" },
+  { value: "00", label: "SECS" },
 ]
 
 type CurrentEntry = {
@@ -22,12 +22,20 @@ export function LeaderboardHero({ currentEntry }: { currentEntry?: CurrentEntry 
   const [timeLeft, setTimeLeft] = useState(staticTimer)
 
   useEffect(() => {
-    if (!currentEntry?.end) {
+    const entry = currentEntry || {
+      id: 0,
+      start: String(new Date("2026-05-01T00:00:00Z").getTime()),
+      end: String(new Date("2026-05-06T23:59:59Z").getTime()),
+      status: "active",
+      totalValue: 0,
+    }
+
+    if (!entry?.end) {
       setTimeLeft(staticTimer)
       return
     }
 
-    const endTime = parseInt(currentEntry.end)
+    const endTime = parseInt(entry.end)
 
     const calculateTimeLeft = () => {
       const now = Date.now()
