@@ -45,6 +45,7 @@ export function LeaderboardView() {
     fetch("/api/cases-leaderboard")
       .then(async (r) => {
         const json = await r.json()
+        console.log("Cases API Response:", JSON.stringify(json, null, 2))
         if (!r.ok || json.error) throw new Error(json.message || "Failed to load")
         setCasesData(json)
       })
@@ -64,10 +65,12 @@ export function LeaderboardView() {
   let tableRows: Row[] | undefined
 
   if (active === "cases" && casesData?.wagers) {
+    console.log("Processing cases data:", casesData)
     const rewardsByPlace = new Map<number, number>()
     casesData.leaderboard?.leaderboardRewards?.forEach((r) => {
       rewardsByPlace.set(r.place, r.winnings)
     })
+    console.log("Rewards map:", Object.fromEntries(rewardsByPlace))
 
     const toEntry = (w: CasesWager): PodiumEntry => ({
       name: w.username,
@@ -127,6 +130,11 @@ export function LeaderboardView() {
       {active === "cases" && error && (
         <div className="mt-5 rounded-xl bg-[#112116] border border-red-500/30 p-6 text-center text-red-400 text-sm">
           {error}
+        </div>
+      )}
+      {active === "cases" && !loading && !error && casesData && (!casesData.wagers || casesData.wagers.length === 0) && (
+        <div className="mt-5 rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-6 text-center text-[#888888] text-sm">
+          No wagers data available
         </div>
       )}
 
