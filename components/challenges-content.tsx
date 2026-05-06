@@ -89,7 +89,7 @@ export function ChallengesContent() {
   return (
     <div className="mt-5 space-y-5">
       {/* Search + Tabs */}
-      <section className="rounded-xl bg-[#112116] border border-[#1a2520] p-4 md:p-6">
+      <section className="rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-4 md:p-6">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="flex items-center gap-2 rounded-md bg-[#0d1611] border border-[#1a2520] px-4 py-2 max-w-sm w-full">
             <Search className="w-4 h-4 text-[#555555]" />
@@ -136,7 +136,7 @@ export function ChallengesContent() {
       </section>
 
       {/* Cards Grid */}
-      <section className="rounded-xl bg-[#112116] border border-[#1a2520] p-4 md:p-6">
+      <section className="rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-4 md:p-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {filtered.map((c) => (
             <div

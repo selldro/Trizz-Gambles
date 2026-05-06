@@ -100,4 +100,13 @@
     opacity: 0.6;
     cursor: not-allowed;
   }
+
+  /* Subtle green glow overlay for cards (matches Ready To Climb CTA) */
+  .card-glow {
+    background-image: radial-gradient(
+      800px circle at 50% 120%,
+      rgba(0, 255, 135, 0.08) 0%,
+      transparent 60%
+    );
+  }
 }

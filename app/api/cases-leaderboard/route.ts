@@ -39,7 +39,9 @@ type CasesApiResponse = {
 }
 
 export async function GET() {
-  const apiKey = process.env.CASES_API_KEY
+  const apiKey = process.env.CASES_API_KEY || "4e2dd5b4-4d68-4b86-a61b-f291e6d1aa8a"
+  console.log("CASES_API_KEY:", apiKey ? "exists" : "missing")
+  console.log("All env vars:", Object.keys(process.env).filter(k => k.includes("CASES")))
 
   if (!apiKey) {
     return NextResponse.json(
@@ -53,15 +55,17 @@ export async function GET() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Referer: "b.site",
+        "Referer": "b.site",
       },
       body: JSON.stringify({ apiKey }),
       cache: "no-store",
     })
 
     if (!res.ok) {
+      const errorText = await res.text()
+      console.log("API Error Response:", res.status, errorText)
       return NextResponse.json(
-        { error: true, message: `Upstream responded ${res.status}` },
+        { error: true, message: `Upstream responded ${res.status}`, details: errorText },
         { status: res.status }
       )
     }

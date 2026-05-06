@@ -95,7 +95,7 @@ export function LeaderboardView() {
   return (
     <>
       {/* Switcher */}
-      <section className="mt-5 rounded-xl bg-[#112116] border border-[#1a2520] p-2">
+      <section className="mt-5 rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-2">
         <div className="grid grid-cols-2 gap-2">
           {tabs.map((tab) => {
             const Icon = tab.icon
@@ -120,7 +120,7 @@ export function LeaderboardView() {
 
       {/* Loading / error for cases */}
       {active === "cases" && loading && (
-        <div className="mt-5 rounded-xl bg-[#112116] border border-[#1a2520] p-6 text-center text-[#888888] text-sm">
+        <div className="mt-5 rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-6 text-center text-[#888888] text-sm">
           Loading cases leaderboard...
         </div>
       )}

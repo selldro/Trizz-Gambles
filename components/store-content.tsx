@@ -21,7 +21,7 @@ const storeItems: StoreItem[] = [
 
 export function StoreContent() {
   return (
-    <section className="rounded-xl bg-[#112116] border border-[#1a2520] p-4 md:p-6 mt-5">
+    <section className="rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-4 md:p-6 mt-5">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {storeItems.map((item) => (
           <div

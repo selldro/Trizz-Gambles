@@ -3,7 +3,7 @@ import { ZyynLogo } from "./zyyn-logo"
 export function Footer() {
   return (
     <div className="mx-auto max-w-[1360px] px-4 md:px-6">
-      <section className="rounded-xl bg-[#112116] border border-[#1a2520] p-5 mt-5 mb-5">
+      <section className="rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-5 mt-5 mb-5">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Brand */}
           <div className="flex items-center gap-2">

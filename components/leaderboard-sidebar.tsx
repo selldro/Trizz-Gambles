@@ -20,7 +20,7 @@ const steps = [
 
 export function LeaderboardSidebar() {
   return (
-    <aside className="rounded-xl bg-[#112116] border border-[#1a2520] p-5">
+    <aside className="rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-5">
       {/* How it works */}
       <div className="flex items-center gap-2">
         <span className="grid place-items-center w-7 h-7 rounded-md bg-[#1a2520] border border-[#1a2520]">

@@ -9,7 +9,7 @@ const timer = [
 
 export function LeaderboardHero() {
   return (
-    <section className="relative rounded-xl bg-[#112116] border border-[#1a2520] overflow-hidden">
+    <section className="relative rounded-xl bg-[#112116] border border-[#1a2520] card-glow overflow-hidden">
             <div className="relative grid lg:grid-cols-[1fr_auto] gap-6 md:gap-8 p-5 md:p-10">
         {/* Left */}
         <div>
@@ -36,7 +36,7 @@ export function LeaderboardHero() {
               <div className="text-[11px] font-bold tracking-[0.18em] text-[#888888]">
                 MONTHLY PRIZE POOL
               </div>
-              <div className="text-xl md:text-2xl font-extrabold text-[#00ff87]">$10,000.00</div>
+              <div className="text-xl md:text-2xl font-extrabold text-[#00ff87]">$2,500.00</div>
             </div>
           </div>
 

@@ -33,7 +33,7 @@ export function SiteHeader() {
         {/* Right */}
         <div className="flex items-center gap-2 md:gap-3">
           {/* Balance */}
-          <div className="flex items-center gap-1 md:gap-2 rounded-md bg-[#112116] border border-[#1a2520] pl-2 md:pl-3 pr-1 py-1">
+          <div className="flex items-center gap-1 md:gap-2 rounded-md bg-[#112116] border border-[#1a2520] card-glow pl-2 md:pl-3 pr-1 py-1">
             <div className="flex items-center gap-1.5">
               <Coins className="w-4 h-4 text-[#00ff87]" fill="#00ff87" />
               <span className="text-sm font-semibold text-white">10</span>
@@ -57,7 +57,7 @@ export function SiteHeader() {
           </a>
 
           {/* Avatar - hidden on mobile */}
-          <a href="/dashboard" className="hidden md:flex items-center rounded-md bg-[#112116] border border-[#1a2520] p-1">
+          <a href="/dashboard" className="hidden md:flex items-center rounded-md bg-[#112116] border border-[#1a2520] card-glow p-1">
             <span className="block w-7 h-7 rounded-md overflow-hidden bg-[#1a2520]">
               <img
                 src="/Default PFP.jpg"
@@ -71,7 +71,7 @@ export function SiteHeader() {
           <button
             onClick={() => setOpen((o) => !o)}
             aria-label="Toggle menu"
-            className="lg:hidden grid place-items-center w-9 h-9 rounded-md bg-[#112116] border border-[#1a2520]"
+            className="lg:hidden grid place-items-center w-9 h-9 rounded-md bg-[#112116] border border-[#1a2520] card-glow"
           >
             {open ? <X className="w-4 h-4 text-white" /> : <Menu className="w-4 h-4 text-white" />}
           </button>
@@ -81,7 +81,7 @@ export function SiteHeader() {
       {/* Mobile menu */}
       {open && (
         <div className="lg:hidden mx-auto max-w-[1360px] px-4 pb-4">
-          <div className="rounded-xl bg-[#112116] border border-[#1a2520] p-3 flex flex-col">
+          <div className="rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-3 flex flex-col">
             <nav className="flex flex-col text-[13px] font-bold tracking-[0.18em]">
               <a href="/home" onClick={() => setOpen(false)} className={`px-3 py-3 rounded-md ${linkClass('/home')}`}>HOME</a>
               <a href="/leaderboard" onClick={() => setOpen(false)} className={`px-3 py-3 rounded-md ${linkClass('/leaderboard')}`}>LEADERBOARD</a>

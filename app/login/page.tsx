@@ -8,7 +8,7 @@ export default function LoginPage() {
       <SiteHeader />
 
       <div className="flex-1 mx-auto max-w-[1360px] w-full px-6 py-12 flex items-center justify-center">
-        <section className="w-full max-w-[440px] rounded-xl bg-[#112116] border border-[#1a2520] p-8">
+        <section className="w-full max-w-[440px] rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-8">
           {/* Header */}
           <div className="flex flex-col items-center text-center mb-8">
             <ZyynLogo className="h-12 w-12 mb-4" />

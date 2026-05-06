@@ -6,7 +6,7 @@ export function MilestonesHero() {
   const completionPercentage = Math.round((completedMilestones / totalMilestones) * 100)
 
   return (
-    <section className="relative rounded-xl bg-[#112116] border border-[#1a2520] overflow-hidden">
+    <section className="relative rounded-xl bg-[#112116] border border-[#1a2520] card-glow overflow-hidden">
       <div className="relative grid md:grid-cols-[1fr_auto] gap-6 md:gap-8 p-5 md:p-10">
         {/* Left */}
         <div>

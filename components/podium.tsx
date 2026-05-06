@@ -9,8 +9,8 @@ export type PodiumEntry = {
 
 const defaultEntries: { first: PodiumEntry; second: PodiumEntry; third: PodiumEntry } = {
   first: { name: "Prashant Deepak", avatar: "/Default PFP.jpg", wagered: "$8,900.14", reward: "$1,000.00" },
-  second: { name: "Towshif Rakib", avatar: "/Default PFP.jpg", wagered: "$6,500.23", reward: "$500.00" },
-  third: { name: "Rohit Katariya", avatar: "/Default PFP.jpg", wagered: "$5,800.45", reward: "$250.00" },
+  second: { name: "Towshif Rakib", avatar: "/Default PFP.jpg", wagered: "$6,500.23", reward: "$600.00" },
+  third: { name: "Rohit Katariya", avatar: "/Default PFP.jpg", wagered: "$5,800.45", reward: "$300.00" },
 }
 
 export function Podium({
@@ -26,7 +26,7 @@ export function Podium({
   const p2 = second ?? defaultEntries.second
   const p3 = third ?? defaultEntries.third
   return (
-    <section className="relative rounded-xl bg-[#112116] border border-[#1a2520] overflow-hidden mt-5">
+    <section className="relative rounded-xl bg-[#112116] border border-[#1a2520] card-glow overflow-hidden mt-5">
             
       {/* Trapezoid gold pedestal - spans full card height */}
       <div className="pointer-events-none absolute inset-0 z-0">

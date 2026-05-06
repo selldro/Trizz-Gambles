@@ -6,7 +6,7 @@ const sites = [
 
 export function DashboardConnections() {
   return (
-    <section className="rounded-xl bg-[#112116] border border-[#1a2520] p-6 mt-5">
+    <section className="rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-6 mt-5">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-5">
         <h2 className="text-[14px] font-bold tracking-[0.18em] text-white">SITE CONNECTIONS</h2>

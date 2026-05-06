@@ -20,7 +20,7 @@ export function AdminUsers() {
   )
 
   return (
-    <section className="rounded-xl bg-[#112116] border border-[#1a2520] p-4 md:p-6">
+    <section className="rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-4 md:p-6">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-5">
         <div className="flex items-center gap-3">

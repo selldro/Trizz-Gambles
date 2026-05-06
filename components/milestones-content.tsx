@@ -60,7 +60,7 @@ export function MilestonesContent() {
       {tiers.map((tier) => (
         <section
           key={tier.name}
-          className="rounded-xl bg-[#112116] border border-[#1a2520] p-4 md:p-6"
+          className="rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-4 md:p-6"
         >
           {/* Milestone Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

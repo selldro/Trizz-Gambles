@@ -16,10 +16,8 @@ const defaultRows: Row[] = [
   { rank: 4, name: "Miles Esther", avatar: A, wagered: "$4,320.00", reward: "$200.00" },
   { rank: 5, name: "Aiden Ghost", avatar: A, wagered: "$3,210.45", reward: "$150.00" },
   { rank: 6, name: "CodeRed", avatar: A, wagered: "$2,890.12", reward: "$100.00" },
-  { rank: 7, name: "Zer0Luck", avatar: A, wagered: "$2,450.73", reward: "$75.00" },
-  { rank: 8, name: "BetaKing", avatar: A, wagered: "$1,980.33", reward: "$50.00" },
-  { rank: 9, name: "VisionX", avatar: A, wagered: "$1,560.21", reward: "$40.00" },
-  { rank: 10, name: "ZyynVIP", avatar: A, wagered: "$1,230.66", reward: "$30.00" },
+  { rank: 7, name: "Zer0Luck", avatar: A, wagered: "$2,450.73", reward: "$80.00" },
+  { rank: 8, name: "BetaKing", avatar: A, wagered: "$1,980.33", reward: "$70.00" },
 ]
 
 const tabs = ["DAILY", "WEEKLY", "MONTHLY"] as const
@@ -29,7 +27,7 @@ export function LeaderboardTable({ rows }: { rows?: Row[] } = {}) {
   const data = rows ?? defaultRows
 
   return (
-    <section className="rounded-xl bg-[#112116] border border-[#1a2520] p-3 md:p-5">
+    <section className="rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-3 md:p-5">
       {/* Tabs + search */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4">
         <div className="flex items-center gap-2">

@@ -10,7 +10,7 @@ export default function AdminPage() {
 
       <div className="mx-auto max-w-[1360px] px-4 md:px-6">
         {/* Admin Hero */}
-        <section className="rounded-xl bg-[#112116] border border-[#1a2520] p-5 md:p-10">
+        <section className="rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-5 md:p-10">
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-white leading-none italic font-[family-name:var(--font-heading)]">
             ADMIN DASHBOARD
           </h1>

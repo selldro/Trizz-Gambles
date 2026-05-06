@@ -71,7 +71,7 @@ export function AdminChallenges() {
   }
 
   return (
-    <section className="rounded-xl bg-[#112116] border border-[#1a2520] p-4 md:p-6 mt-5">
+    <section className="rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-4 md:p-6 mt-5">
       {/* Header */}
       <div className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-3">
@@ -110,7 +110,7 @@ export function AdminChallenges() {
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 placeholder="e.g. Sweet Bonanza 1000"
-                className="w-full px-3 py-2 rounded-md bg-[#112116] border border-[#1a2520] text-sm text-white placeholder-[#555555] outline-none focus:border-[#00ff87]/50"
+                className="w-full px-3 py-2 rounded-md bg-[#112116] border border-[#1a2520] card-glow text-sm text-white placeholder-[#555555] outline-none focus:border-[#00ff87]/50"
               />
             </div>
             <div>
@@ -119,7 +119,7 @@ export function AdminChallenges() {
                 value={form.image}
                 onChange={(e) => setForm({ ...form, image: e.target.value })}
                 placeholder="e.g. /SB.png"
-                className="w-full px-3 py-2 rounded-md bg-[#112116] border border-[#1a2520] text-sm text-white placeholder-[#555555] outline-none focus:border-[#00ff87]/50"
+                className="w-full px-3 py-2 rounded-md bg-[#112116] border border-[#1a2520] card-glow text-sm text-white placeholder-[#555555] outline-none focus:border-[#00ff87]/50"
               />
             </div>
             <div>
@@ -128,7 +128,7 @@ export function AdminChallenges() {
                 value={form.prize}
                 onChange={(e) => setForm({ ...form, prize: e.target.value })}
                 placeholder="e.g. $50"
-                className="w-full px-3 py-2 rounded-md bg-[#112116] border border-[#1a2520] text-sm text-white placeholder-[#555555] outline-none focus:border-[#00ff87]/50"
+                className="w-full px-3 py-2 rounded-md bg-[#112116] border border-[#1a2520] card-glow text-sm text-white placeholder-[#555555] outline-none focus:border-[#00ff87]/50"
               />
             </div>
             <div>
@@ -137,7 +137,7 @@ export function AdminChallenges() {
                 value={form.minBet}
                 onChange={(e) => setForm({ ...form, minBet: e.target.value })}
                 placeholder="e.g. $0.2"
-                className="w-full px-3 py-2 rounded-md bg-[#112116] border border-[#1a2520] text-sm text-white placeholder-[#555555] outline-none focus:border-[#00ff87]/50"
+                className="w-full px-3 py-2 rounded-md bg-[#112116] border border-[#1a2520] card-glow text-sm text-white placeholder-[#555555] outline-none focus:border-[#00ff87]/50"
               />
             </div>
             <div>
@@ -146,7 +146,7 @@ export function AdminChallenges() {
                 value={form.target}
                 onChange={(e) => setForm({ ...form, target: e.target.value })}
                 placeholder="e.g. 300X"
-                className="w-full px-3 py-2 rounded-md bg-[#112116] border border-[#1a2520] text-sm text-white placeholder-[#555555] outline-none focus:border-[#00ff87]/50"
+                className="w-full px-3 py-2 rounded-md bg-[#112116] border border-[#1a2520] card-glow text-sm text-white placeholder-[#555555] outline-none focus:border-[#00ff87]/50"
               />
             </div>
           </div>
