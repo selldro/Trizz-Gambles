@@ -71,6 +71,7 @@ export async function GET() {
     }
 
     const data: CasesApiResponse = await res.json()
+    console.log("Full API Response:", JSON.stringify(data, null, 2))
     return NextResponse.json(data)
   } catch (err) {
     return NextResponse.json(

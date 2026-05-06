@@ -22,20 +22,12 @@ export function LeaderboardHero({ currentEntry }: { currentEntry?: CurrentEntry 
   const [timeLeft, setTimeLeft] = useState(staticTimer)
 
   useEffect(() => {
-    const entry = currentEntry || {
-      id: 0,
-      start: String(new Date("2026-05-01T00:00:00Z").getTime()),
-      end: String(new Date("2026-05-06T23:59:59Z").getTime()),
-      status: "active",
-      totalValue: 0,
-    }
-
-    if (!entry?.end) {
+    if (!currentEntry?.end) {
       setTimeLeft(staticTimer)
       return
     }
 
-    const endTime = parseInt(entry.end)
+    const endTime = parseInt(currentEntry.end)
 
     const calculateTimeLeft = () => {
       const now = Date.now()
