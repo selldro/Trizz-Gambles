@@ -39,7 +39,7 @@ type CasesApiResponse = {
 }
 
 export async function GET() {
-  const apiKey = process.env.CASES_API_KEY || "4e2dd5b4-4d68-4b86-a61b-f291e6d1aa8a"
+  const apiKey = process.env.CASES_API_KEY
   console.log("CASES_API_KEY:", apiKey ? "exists" : "missing")
   console.log("All env vars:", Object.keys(process.env).filter(k => k.includes("CASES")))
 

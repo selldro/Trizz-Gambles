@@ -5,6 +5,7 @@ import { Dice5, Package } from "lucide-react"
 import { Podium, type PodiumEntry } from "./podium"
 import { LeaderboardTable, type Row } from "./leaderboard-table"
 import { LeaderboardSidebar } from "./leaderboard-sidebar"
+import { LeaderboardHero } from "./leaderboard-hero"
 
 type LeaderboardType = "casino" | "cases"
 
@@ -26,6 +27,13 @@ type CasesApiData = {
   leaderboard?: {
     leaderboardRewards?: CasesReward[]
   }
+  currentEntry?: {
+    id: number
+    start: string
+    end: string
+    status: string
+    totalValue: number
+  } | null
 }
 
 function formatMoney(n: number) {
@@ -97,6 +105,9 @@ export function LeaderboardView() {
 
   return (
     <>
+      {/* Hero */}
+      <LeaderboardHero currentEntry={active === "cases" ? casesData?.currentEntry : undefined} />
+
       {/* Switcher */}
       <section className="mt-5 rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-2">
         <div className="grid grid-cols-2 gap-2">
@@ -134,18 +145,23 @@ export function LeaderboardView() {
       )}
       {active === "cases" && !loading && !error && casesData && (!casesData.wagers || casesData.wagers.length === 0) && (
         <div className="mt-5 rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-6 text-center text-[#888888] text-sm">
-          No wagers data available
+          No participants yet. Be the first to join the leaderboard!
         </div>
       )}
 
-      {/* Podium */}
-      <Podium first={podiumFirst} second={podiumSecond} third={podiumThird} />
+      {/* Podium and Table - only show when there's data or casino is active */}
+      {(active === "casino" || (active === "cases" && casesData?.wagers && casesData.wagers.length > 0)) && (
+        <>
+          {/* Podium */}
+          <Podium first={podiumFirst} second={podiumSecond} third={podiumThird} />
 
-      {/* Table + Sidebar */}
-      <div className="mt-5 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-5">
-        <LeaderboardTable rows={tableRows} />
-        <LeaderboardSidebar />
-      </div>
+          {/* Table + Sidebar */}
+          <div className="mt-5 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-5">
+            <LeaderboardTable rows={tableRows} />
+            <LeaderboardSidebar />
+          </div>
+        </>
+      )}
     </>
   )
 }

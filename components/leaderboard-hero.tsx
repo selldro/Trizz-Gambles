@@ -1,13 +1,60 @@
-import { Info, Trophy } from "lucide-react"
+"use client"
 
-const timer = [
+import { Info, Trophy } from "lucide-react"
+import { useEffect, useState } from "react"
+
+const staticTimer = [
   { value: "12", label: "DAYS" },
   { value: "07", label: "HRS" },
   { value: "32", label: "MINS" },
   { value: "18", label: "SECS" },
 ]
 
-export function LeaderboardHero() {
+type CurrentEntry = {
+  id: number
+  start: string
+  end: string
+  status: string
+  totalValue: number
+}
+
+export function LeaderboardHero({ currentEntry }: { currentEntry?: CurrentEntry | null }) {
+  const [timeLeft, setTimeLeft] = useState(staticTimer)
+
+  useEffect(() => {
+    if (!currentEntry?.end) {
+      setTimeLeft(staticTimer)
+      return
+    }
+
+    const endTime = parseInt(currentEntry.end)
+
+    const calculateTimeLeft = () => {
+      const now = Date.now()
+      const diff = endTime - now
+
+      if (diff <= 0) {
+        return staticTimer
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24))
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000)
+
+      return [
+        { value: String(days).padStart(2, "0"), label: "DAYS" },
+        { value: String(hours).padStart(2, "0"), label: "HRS" },
+        { value: String(minutes).padStart(2, "0"), label: "MINS" },
+        { value: String(seconds).padStart(2, "0"), label: "SECS" },
+      ]
+    }
+
+    setTimeLeft(calculateTimeLeft())
+    const interval = setInterval(() => setTimeLeft(calculateTimeLeft()), 1000)
+
+    return () => clearInterval(interval)
+  }, [currentEntry])
   return (
     <section className="relative rounded-xl bg-[#112116] border border-[#1a2520] card-glow overflow-hidden">
             <div className="relative grid lg:grid-cols-[1fr_auto] gap-6 md:gap-8 p-5 md:p-10">
@@ -44,7 +91,7 @@ export function LeaderboardHero() {
             RACE ENDS IN
           </div>
           <div className="mt-2 grid grid-cols-4 gap-2">
-            {timer.map((t) => (
+            {timeLeft.map((t) => (
               <div
                 key={t.label}
                 className="min-w-0 rounded-md bg-[#1a2520] border border-[#1a2520] py-2.5 md:py-3 px-1 text-center"
