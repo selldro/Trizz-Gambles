@@ -21,6 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-background">
       <body className={`${geist.variable} ${geistMono.variable} ${chakra.variable} font-sans antialiased bg-background text-foreground`}>
+        <div className="fixed inset-0 -z-10">
+          <img src="/background.png" alt="" className="w-full h-full object-cover opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0f0d] via-[#0a0f0d] to-[#0a0f0d]" />
+        </div>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
