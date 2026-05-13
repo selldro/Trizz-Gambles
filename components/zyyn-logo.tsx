@@ -5,8 +5,8 @@ export function ZyynLogo({ className }: Props) {
     <svg viewBox="0 0 40 40" className={className} fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <defs>
         <linearGradient id="nzg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#00ff87" />
-          <stop offset="1" stopColor="#00cc6a" />
+          <stop stopColor="#8b3dff" />
+          <stop offset="1" stopColor="#6b21a8" />
         </linearGradient>
       </defs>
       {/* spade-like shape */}
