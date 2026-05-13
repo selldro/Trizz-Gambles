@@ -2,16 +2,8 @@ import { ArrowRight } from "lucide-react"
 
 export function HomeCta() {
   return (
-    <section className="relative rounded-xl bg-[#112116] border border-[#1a2520] card-glow overflow-hidden p-6 md:p-10">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-30"
-        style={{
-          background:
-            "radial-gradient(800px circle at 50% 120%, rgba(0,255,135,0.25) 0%, transparent 60%)",
-        }}
-      />
-      <div className="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+    <section className="relative rounded-xl bg-[#120b26] border border-[#1a1033] p-6 md:p-10">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div>
           <h2 className="text-2xl md:text-4xl font-black italic font-[family-name:var(--font-heading)] text-white">
             READY TO CLIMB?
@@ -30,7 +22,7 @@ export function HomeCta() {
           </a>
           <a
             href="/leaderboard"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-[#00ff87] text-[#00ff87] text-[13px] font-bold tracking-[0.14em] hover:bg-[#00ff87]/10 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-[#8b3dff] text-[#8b3dff] text-[13px] font-bold tracking-[0.14em] hover:bg-[#8b3dff]/10 transition-colors"
           >
             VIEW LEADERBOARD
           </a>

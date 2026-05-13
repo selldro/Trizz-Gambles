@@ -4,18 +4,18 @@ import { ZyynLogo } from "@/components/zyyn-logo"
 
 export default function LoginPage() {
   return (
-    <main className="min-h-screen text-white flex flex-col">
+    <main className="min-h-screen text-white">
       <SiteHeader />
 
-      <div className="flex-1 mx-auto max-w-[1360px] w-full px-6 py-12 flex items-center justify-center">
-        <section className="w-full max-w-[440px] rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-8">
+      <div className="mx-auto max-w-[1360px] px-4 md:px-6 py-12 flex items-center justify-center min-h-[calc(100vh-200px)]">
+        <section className="w-full max-w-[440px] rounded-xl bg-[#120b26] border border-[#1a1033] p-8">
           {/* Header */}
           <div className="flex flex-col items-center text-center mb-8">
             <ZyynLogo className="h-12 w-12 mb-4" />
             <h1 className="text-3xl font-bold tracking-tight italic font-[family-name:var(--font-heading)]">WELCOME BACK</h1>
             <p className="mt-2 text-sm text-[#888888]">
               Sign in to continue to{" "}
-              <span className="text-[#00ff87] font-bold">ZYYN</span>
+              <span className="text-[#8b3dff] font-bold">ZYYN</span>
             </p>
           </div>
 
@@ -32,15 +32,15 @@ export default function LoginPage() {
 
           {/* Divider */}
           <div className="my-6 flex items-center gap-3">
-            <div className="flex-1 h-px bg-[#1a2520]" />
+            <div className="flex-1 h-px bg-[#06030f]" />
             <span className="text-[10px] font-bold tracking-[0.18em] text-[#555555]">OR</span>
-            <div className="flex-1 h-px bg-[#1a2520]" />
+            <div className="flex-1 h-px bg-[#06030f]" />
           </div>
 
           {/* Signup link */}
           <p className="text-center text-sm text-[#888888]">
             Don't have an account?{" "}
-            <a href="/signup" className="text-[#00ff87] font-bold hover:underline">
+            <a href="/signup" className="text-[#8b3dff] font-bold hover:underline">
               Sign up
             </a>
           </p>
@@ -54,8 +54,6 @@ export default function LoginPage() {
           </p>
         </section>
       </div>
-
-      <Footer />
     </main>
   )
 }

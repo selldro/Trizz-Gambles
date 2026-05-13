@@ -4,40 +4,39 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Zyyn palette */
-  --background: #0d1611;
+  /* Purple/dark theme */
+  --background: #06030f;
   --foreground: #ffffff;
 
-  --card: #112116;
-  --card-2: #1a2520;
-  --card-foreground: #ffffff;
+  --card: #120b26;
+  --card-2: #1a1033;
 
-  --border: #1a2520;
-  --border-2: #253028;
+  --border: rgba(139, 61, 255, 0.18);
+  --border-2: rgba(255, 255, 255, 0.06);
 
-  --muted: #1a2520;
-  --muted-foreground: #888888;
+  --muted: #1a1033;
+  --muted-foreground: #6e6690;
 
-  --primary: #00ff87;
+  --primary: #8b3dff;
   --primary-foreground: #000000;
 
-  --accent-green: #00ff87;
-  --accent-green-2: #00cc6a;
+  --accent-green: #8b3dff;
+  --accent-green-2: #5f2bff;
 
-  --gold: #fbbf24;
-  --gold-2: #f59e0b;
+  --gold: #ffb84d;
+  --gold-2: #ff9f33;
 
-  --green: #00ff87;
-  --green-2: #00cc6a;
+  --green: #7dff8f;
+  --green-2: #5fcf70;
 
-  --popover: #0f0f0f;
+  --popover: #0b0718;
   --popover-foreground: #ffffff;
-  --secondary: #1a1a1a;
+  --secondary: #0b0718;
   --secondary-foreground: #ffffff;
-  --destructive: oklch(0.577 0.245 27.325);
+  --destructive: #ff4d8d;
   --destructive-foreground: #ffffff;
-  --input: #1a1a1a;
-  --ring: #00ff87;
+  --input: #0b0718;
+  --ring: #8b3dff;
 
   --radius: 0.625rem;
 }
@@ -77,15 +76,20 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-image: url('/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 }
 
 @layer components {
-  /* 3D primary green button - 3D edge integrated into the button height */
+  /* 3D primary purple button - solid with 3D bottom border */
   .btn-3d-green {
-    background-image: linear-gradient(to bottom, #00ff87, #00cc6a);
+    background-color: #8b3dff;
     color: #000;
-    border-bottom: 4px solid #007a3d;
+    border-bottom: 4px solid #5a1fc9;
     box-sizing: border-box;
     transition: filter 80ms ease, transform 80ms ease, border-bottom-width 80ms ease, padding-top 80ms ease;
   }

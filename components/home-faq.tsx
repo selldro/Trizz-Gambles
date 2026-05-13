@@ -30,9 +30,9 @@ export function HomeFaq() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section className="rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-5 md:p-8">
+    <section className="rounded-xl bg-[#120b26] border border-[#1a1033] p-5 md:p-8">
       <div className="mb-6">
-        <div className="text-[11px] font-bold tracking-[0.18em] text-[#00ff87]">FAQ</div>
+        <div className="text-[11px] font-bold tracking-[0.18em] text-[#8b3dff]">FAQ</div>
         <h2 className="mt-2 text-2xl md:text-4xl font-black italic font-[family-name:var(--font-heading)]">
           FREQUENTLY ASKED QUESTIONS
         </h2>
@@ -42,14 +42,14 @@ export function HomeFaq() {
         {faqs.map((f, i) => {
           const isOpen = open === i
           return (
-            <li key={i} className="rounded-md bg-[#0d1611] border border-[#1a2520] overflow-hidden">
+            <li key={i} className="rounded-md bg-[#06030f] border border-[#1a1033] overflow-hidden">
               <button
                 onClick={() => setOpen(isOpen ? null : i)}
                 className="w-full flex items-center justify-between gap-4 px-4 py-4 text-left"
               >
                 <span className="text-sm md:text-base font-semibold text-white">{f.q}</span>
                 <ChevronDown
-                  className={`shrink-0 w-4 h-4 text-[#00ff87] transition-transform ${isOpen ? "rotate-180" : ""}`}
+                  className={`shrink-0 w-4 h-4 text-[#8b3dff] transition-transform ${isOpen ? "rotate-180" : ""}`}
                 />
               </button>
               {isOpen && (

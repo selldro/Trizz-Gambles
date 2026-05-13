@@ -19,11 +19,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-background">
-      <body className={`${geist.variable} ${geistMono.variable} ${chakra.variable} font-sans antialiased bg-background text-foreground`}>
-        <div className="fixed inset-0 -z-10">
-          <img src="/background.png" alt="" className="w-full h-full object-cover" />
-        </div>
+    <html lang="en">
+      <body className={`${geist.variable} ${geistMono.variable} ${chakra.variable} font-sans antialiased text-foreground`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

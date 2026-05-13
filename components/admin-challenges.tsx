@@ -71,13 +71,13 @@ export function AdminChallenges() {
   }
 
   return (
-    <section className="rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-4 md:p-6 mt-5">
+    <section className="rounded-xl bg-[#120b26] border border-[#1a1033] p-4 md:p-6 mt-5">
       {/* Header */}
       <div className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-3">
-          <Swords className="w-5 h-5 text-[#00ff87]" />
+          <Swords className="w-5 h-5 text-[#8b3dff]" />
           <h2 className="text-[14px] font-bold tracking-[0.18em] text-white">MANAGE CHALLENGES</h2>
-          <span className="text-[11px] font-bold tracking-[0.16em] text-[#555555] bg-[#1a2520] px-2 py-0.5 rounded">
+          <span className="text-[11px] font-bold tracking-[0.16em] text-[#555555] bg-[#1a1033] px-2 py-0.5 rounded">
             {challenges.length} Total
           </span>
         </div>
@@ -93,7 +93,7 @@ export function AdminChallenges() {
 
       {/* Form Modal */}
       {showForm && (
-        <div className="rounded-md bg-[#0d1611] border border-[#1a2520] p-5 mb-5">
+        <div className="rounded-md bg-[#06030f] border border-[#1a1033] p-5 mb-5">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-[13px] font-bold tracking-[0.16em] text-white">
               {editId !== null ? "EDIT CHALLENGE" : "NEW CHALLENGE"}
@@ -110,7 +110,7 @@ export function AdminChallenges() {
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 placeholder="e.g. Sweet Bonanza 1000"
-                className="w-full px-3 py-2 rounded-md bg-[#112116] border border-[#1a2520] card-glow text-sm text-white placeholder-[#555555] outline-none focus:border-[#00ff87]/50"
+                className="w-full px-3 py-2 rounded-md bg-[#120b26] border border-[#1a1033] text-sm text-white placeholder-[#555555] outline-none focus:border-[#8b3dff]/50"
               />
             </div>
             <div>
@@ -119,7 +119,7 @@ export function AdminChallenges() {
                 value={form.image}
                 onChange={(e) => setForm({ ...form, image: e.target.value })}
                 placeholder="e.g. /SB.png"
-                className="w-full px-3 py-2 rounded-md bg-[#112116] border border-[#1a2520] card-glow text-sm text-white placeholder-[#555555] outline-none focus:border-[#00ff87]/50"
+                className="w-full px-3 py-2 rounded-md bg-[#120b26] border border-[#1a1033] text-sm text-white placeholder-[#555555] outline-none focus:border-[#8b3dff]/50"
               />
             </div>
             <div>
@@ -128,7 +128,7 @@ export function AdminChallenges() {
                 value={form.prize}
                 onChange={(e) => setForm({ ...form, prize: e.target.value })}
                 placeholder="e.g. $50"
-                className="w-full px-3 py-2 rounded-md bg-[#112116] border border-[#1a2520] card-glow text-sm text-white placeholder-[#555555] outline-none focus:border-[#00ff87]/50"
+                className="w-full px-3 py-2 rounded-md bg-[#120b26] border border-[#1a1033] text-sm text-white placeholder-[#555555] outline-none focus:border-[#8b3dff]/50"
               />
             </div>
             <div>
@@ -137,7 +137,7 @@ export function AdminChallenges() {
                 value={form.minBet}
                 onChange={(e) => setForm({ ...form, minBet: e.target.value })}
                 placeholder="e.g. $0.2"
-                className="w-full px-3 py-2 rounded-md bg-[#112116] border border-[#1a2520] card-glow text-sm text-white placeholder-[#555555] outline-none focus:border-[#00ff87]/50"
+                className="w-full px-3 py-2 rounded-md bg-[#120b26] border border-[#1a1033] text-sm text-white placeholder-[#555555] outline-none focus:border-[#8b3dff]/50"
               />
             </div>
             <div>
@@ -146,7 +146,7 @@ export function AdminChallenges() {
                 value={form.target}
                 onChange={(e) => setForm({ ...form, target: e.target.value })}
                 placeholder="e.g. 300X"
-                className="w-full px-3 py-2 rounded-md bg-[#112116] border border-[#1a2520] card-glow text-sm text-white placeholder-[#555555] outline-none focus:border-[#00ff87]/50"
+                className="w-full px-3 py-2 rounded-md bg-[#120b26] border border-[#1a1033] text-sm text-white placeholder-[#555555] outline-none focus:border-[#8b3dff]/50"
               />
             </div>
           </div>
@@ -160,7 +160,7 @@ export function AdminChallenges() {
             </button>
             <button
               onClick={() => setShowForm(false)}
-              className="px-6 py-2 rounded-md bg-[#1a2520] text-[#888888] text-[11px] font-bold tracking-[0.18em] hover:text-white transition-colors"
+              className="px-6 py-2 rounded-md bg-[#1a1033] text-[#888888] text-[11px] font-bold tracking-[0.18em] hover:text-white transition-colors"
             >
               CANCEL
             </button>
@@ -172,7 +172,7 @@ export function AdminChallenges() {
       <div className="overflow-x-auto">
         <table className="w-full text-left">
           <thead>
-            <tr className="border-b border-[#1a2520]">
+            <tr className="border-b border-[#1a1033]">
               <th className="pb-3 text-[10px] font-bold tracking-[0.18em] text-[#555555]">GAME</th>
               <th className="pb-3 text-[10px] font-bold tracking-[0.18em] text-[#555555]">PRIZE</th>
               <th className="pb-3 text-[10px] font-bold tracking-[0.18em] text-[#555555]">MIN BET</th>
@@ -183,16 +183,16 @@ export function AdminChallenges() {
           </thead>
           <tbody>
             {challenges.map((c) => (
-              <tr key={c.id} className="border-b border-[#1a2520]/50 hover:bg-[#1a2520]/30 transition-colors">
+              <tr key={c.id} className="border-b border-[#1a1033]/50 hover:bg-[#1a1033]/30 transition-colors">
                 <td className="py-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-md overflow-hidden bg-[#1a2520]">
+                    <div className="w-10 h-10 rounded-md overflow-hidden bg-[#1a1033]">
                       <img src={c.image} alt={c.name} className="w-full h-full object-cover" />
                     </div>
                     <span className="text-[13px] font-bold text-white">{c.name}</span>
                   </div>
                 </td>
-                <td className="py-3 text-[13px] font-bold text-[#00ff87]">{c.prize}</td>
+                <td className="py-3 text-[13px] font-bold text-[#8b3dff]">{c.prize}</td>
                 <td className="py-3 text-[12px] text-[#888888]">{c.minBet}</td>
                 <td className="py-3 text-[12px] text-[#888888]">{c.target}</td>
                 <td className="py-3">
@@ -200,7 +200,7 @@ export function AdminChallenges() {
                     onClick={() => handleToggleStatus(c.id)}
                     className={`text-[10px] font-bold tracking-[0.16em] px-2 py-0.5 rounded cursor-pointer ${
                       c.status === "active"
-                        ? "bg-[#00ff87]/10 text-[#00ff87]"
+                        ? "bg-[#8b3dff]/10 text-[#8b3dff]"
                         : "bg-red-500/10 text-red-500"
                     }`}
                   >
@@ -211,13 +211,13 @@ export function AdminChallenges() {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => handleEdit(c)}
-                      className="grid place-items-center w-7 h-7 rounded-md bg-[#1a2520] text-[#888888] hover:text-[#00ff87] transition-colors"
+                      className="grid place-items-center w-7 h-7 rounded-md bg-[#1a1033] text-[#888888] hover:text-[#8b3dff] transition-colors"
                     >
                       <Pencil className="w-3.5 h-3.5" />
                     </button>
                     <button
                       onClick={() => handleDelete(c.id)}
-                      className="grid place-items-center w-7 h-7 rounded-md bg-[#1a2520] text-[#888888] hover:text-red-500 transition-colors"
+                      className="grid place-items-center w-7 h-7 rounded-md bg-[#1a1033] text-[#888888] hover:text-red-500 transition-colors"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>

@@ -7,33 +7,25 @@ import { LeaderboardTable, type Row } from "./leaderboard-table"
 import { LeaderboardSidebar } from "./leaderboard-sidebar"
 import { LeaderboardHero } from "./leaderboard-hero"
 
-type LeaderboardType = "casino" | "cases"
-
-type CasesWager = {
-  rank: number
-  username: string
-  avatar: string
-  wager: number
-}
-
-type CasesReward = {
-  place: number
-  winnings: number
-}
-
-type CasesApiData = {
+type BetstrikeData = {
   error: boolean
-  wagers?: CasesWager[]
-  leaderboard?: {
-    leaderboardRewards?: CasesReward[]
+  data?: {
+    affiliate?: {
+      totalWagered: string
+    }
+    summarizedBets?: Array<{
+      user: {
+        username: string
+        avatar?: string
+      }
+      wager: string
+      bets: number
+    }>
+    summary?: {
+      totalUsers: number
+      totalWager: string
+    }
   }
-  currentEntry?: {
-    id: number
-    start: string
-    end: string
-    status: string
-    totalValue: number
-  } | null
 }
 
 function formatMoney(n: number) {
@@ -41,123 +33,91 @@ function formatMoney(n: number) {
 }
 
 export function LeaderboardView() {
-  const [active, setActive] = useState<LeaderboardType>("casino")
-  const [casesData, setCasesData] = useState<CasesApiData | null>(null)
-  const [loading, setLoading] = useState(false)
+  const [leaderboardData, setLeaderboardData] = useState<BetstrikeData | null>(null)
+  const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [period, setPeriod] = useState<"weekly" | "monthly">("monthly")
 
   useEffect(() => {
-    if (active !== "cases" || casesData) return
     setLoading(true)
-    setError(null)
-    fetch("/api/cases-leaderboard")
+    fetch(`/api/leaderboard?period=${period}`)
       .then(async (r) => {
         const json = await r.json()
-        console.log("Cases API Response:", JSON.stringify(json, null, 2))
+        console.log("Leaderboard API Response:", JSON.stringify(json, null, 2))
         if (!r.ok || json.error) throw new Error(json.message || "Failed to load")
-        setCasesData(json)
+        setLeaderboardData(json)
       })
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false))
-  }, [active, casesData])
+  }, [period])
 
-  const tabs: { id: LeaderboardType; label: string; icon: typeof Dice5 }[] = [
-    { id: "casino", label: "CASINO", icon: Dice5 },
-    { id: "cases", label: "CASES", icon: Package },
-  ]
-
-  // Build podium + rows from cases data when active
   let podiumFirst: PodiumEntry | undefined
   let podiumSecond: PodiumEntry | undefined
   let podiumThird: PodiumEntry | undefined
   let tableRows: Row[] | undefined
 
-  if (active === "cases" && casesData?.wagers) {
-    console.log("Processing cases data:", casesData)
-    const rewardsByPlace = new Map<number, number>()
-    casesData.leaderboard?.leaderboardRewards?.forEach((r) => {
-      rewardsByPlace.set(r.place, r.winnings)
-    })
-    console.log("Rewards map:", Object.fromEntries(rewardsByPlace))
+  if (leaderboardData?.data?.summarizedBets) {
+    const sorted = [...leaderboardData.data.summarizedBets].sort((a, b) => parseFloat(b.wager) - parseFloat(a.wager))
 
-    const toEntry = (w: CasesWager): PodiumEntry => ({
-      name: w.username,
-      avatar: w.avatar || "/Default PFP.jpg",
-      wagered: formatMoney(w.wager),
-      reward: formatMoney(rewardsByPlace.get(w.rank) ?? 0),
+    const toEntry = (w: any, rank: number): PodiumEntry => ({
+      name: w.user.username,
+      avatar: w.user.avatar || "/Default PFP.jpg",
+      wagered: formatMoney(parseFloat(w.wager)),
+      reward: formatMoney(parseFloat(w.wager) * 0.05), // 5% reward calculation
     })
 
-    const sorted = [...casesData.wagers].sort((a, b) => a.rank - b.rank)
-    podiumFirst = sorted.find((w) => w.rank === 1) ? toEntry(sorted.find((w) => w.rank === 1)!) : undefined
-    podiumSecond = sorted.find((w) => w.rank === 2) ? toEntry(sorted.find((w) => w.rank === 2)!) : undefined
-    podiumThird = sorted.find((w) => w.rank === 3) ? toEntry(sorted.find((w) => w.rank === 3)!) : undefined
+    podiumFirst = sorted[0] ? toEntry(sorted[0], 1) : undefined
+    podiumSecond = sorted[1] ? toEntry(sorted[1], 2) : undefined
+    podiumThird = sorted[2] ? toEntry(sorted[2], 3) : undefined
 
-    tableRows = sorted
-      .filter((w) => w.rank > 3)
-      .map((w) => ({
-        rank: w.rank,
-        name: w.username,
-        avatar: w.avatar || "/Default PFP.jpg",
-        wagered: formatMoney(w.wager),
-        reward: formatMoney(rewardsByPlace.get(w.rank) ?? 0),
-      }))
+    tableRows = sorted.slice(3).map((w, i) => ({
+      rank: i + 4,
+      name: w.user.username,
+      avatar: w.user.avatar || "/Default PFP.jpg",
+      wagered: formatMoney(parseFloat(w.wager)),
+      reward: formatMoney(parseFloat(w.wager) * 0.05),
+    }))
   }
 
   return (
     <>
       {/* Hero */}
-      <LeaderboardHero currentEntry={active === "cases" ? casesData?.currentEntry : undefined} />
+      <LeaderboardHero />
 
       {/* Switcher */}
-      <section className="mt-5 rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-2">
+      <section className="mt-5 rounded-xl bg-[#120b26] border border-[#1a1033] p-2">
         <div className="grid grid-cols-2 gap-2">
-          {tabs.map((tab) => {
-            const Icon = tab.icon
-            const isActive = active === tab.id
-            return (
-              <button
-                key={tab.id}
-                onClick={() => setActive(tab.id)}
-                className={`flex items-center justify-center gap-2 py-3 px-2 rounded-md text-[11px] md:text-[12px] font-bold tracking-[0.14em] md:tracking-[0.18em] transition-colors ${
-                  isActive
-                    ? "btn-3d-green text-black"
-                    : "bg-[#0d1611] text-[#888888] hover:text-white"
-                }`}
-              >
-                <Icon className="w-4 h-4" />
-                <span>{tab.label}<span className="hidden sm:inline"> LEADERBOARD</span></span>
-              </button>
-            )
-          })}
+          <button className="flex items-center justify-center gap-2 py-3 px-2 rounded-md text-[11px] md:text-[12px] font-bold tracking-[0.14em] md:tracking-[0.18em] transition-colors btn-3d-green text-black">
+            <Dice5 className="w-4 h-4" />
+            <span>CASINO<span className="hidden sm:inline"> LEADERBOARD</span></span>
+          </button>
+          <button disabled className="flex items-center justify-center gap-2 py-3 px-2 rounded-md text-[11px] md:text-[12px] font-bold tracking-[0.14em] md:tracking-[0.18em] transition-colors bg-[#06030f] text-[#444444] cursor-not-allowed">
+            <Package className="w-4 h-4" />
+            <span>COMING SOON</span>
+          </button>
         </div>
       </section>
 
-      {/* Loading / error for cases */}
-      {active === "cases" && loading && (
-        <div className="mt-5 rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-6 text-center text-[#888888] text-sm">
-          Loading cases leaderboard...
+      {/* Loading / error */}
+      {loading && (
+        <div className="mt-5 rounded-xl bg-[#120b26] border border-[#1a1033] p-6 text-center text-[#888888] text-sm">
+          Loading leaderboard...
         </div>
       )}
-      {active === "cases" && error && (
-        <div className="mt-5 rounded-xl bg-[#112116] border border-red-500/30 p-6 text-center text-red-400 text-sm">
+      {error && (
+        <div className="mt-5 rounded-xl bg-[#120b26] border border-red-500/30 p-6 text-center text-red-400 text-sm">
           {error}
         </div>
       )}
-      {active === "cases" && !loading && !error && casesData && (!casesData.wagers || casesData.wagers.length === 0) && (
-        <div className="mt-5 rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-6 text-center text-[#888888] text-sm">
-          No participants yet. Be the first to join the leaderboard!
-        </div>
-      )}
 
-      {/* Podium and Table - only show when there's data or casino is active */}
-      {(active === "casino" || (active === "cases" && casesData?.wagers && casesData.wagers.length > 0)) && (
+      {/* Podium and Table */}
+      {!loading && !error && (
         <>
-          {/* Podium */}
           <Podium first={podiumFirst} second={podiumSecond} third={podiumThird} />
 
           {/* Table + Sidebar */}
           <div className="mt-5 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-5">
-            <LeaderboardTable rows={tableRows} />
+            <LeaderboardTable rows={tableRows} period={period} onPeriodChange={setPeriod} />
             <LeaderboardSidebar />
           </div>
         </>
