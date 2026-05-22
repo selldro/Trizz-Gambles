@@ -2,11 +2,7 @@ import { Info } from "lucide-react"
 
 export function HomeHero() {
   return (
-<<<<<<< HEAD
     <section className="relative rounded-xl bg-[#1a1f3a] border border-[#2a344a] card-glow overflow-hidden">
-=======
-    <section className="relative rounded-xl bg-[#120b26] border border-[#1a1033] overflow-hidden">
->>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
       <div className="relative grid lg:grid-cols-[1fr_auto] gap-6 md:gap-8 p-5 md:p-10">
         {/* Left */}
         <div>
@@ -14,11 +10,7 @@ export function HomeHero() {
             WELCOME TO TRIZZ
           </h1>
           <p className="mt-5 text-sm font-bold tracking-wide">
-<<<<<<< HEAD
             <span className="text-[#0969b7]">WAGER, CLIMB, WIN.</span>{" "}
-=======
-            <span className="text-[#8b3dff]">WAGER, CLIMB, WIN.</span>{" "}
->>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
             <span className="text-white/90">THE MORE YOU WAGER, THE HIGHER YOU RANK.</span>
           </p>
           <div className="mt-8 flex items-center gap-2 text-[13px] text-[#888888]">
@@ -34,11 +26,7 @@ export function HomeHero() {
             </a>
             <a
               href="/signup"
-<<<<<<< HEAD
               className="px-6 py-3 rounded-md border border-[#0969b7] text-[#0969b7] text-[13px] font-bold tracking-[0.14em] hover:bg-[#0969b7]/10 transition-colors"
-=======
-              className="px-6 py-3 rounded-md border border-[#8b3dff] text-[#8b3dff] text-[13px] font-bold tracking-[0.14em] hover:bg-[#8b3dff]/10 transition-colors"
->>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
             >
               SIGN UP FREE
             </a>

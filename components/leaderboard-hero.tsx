@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import { Info, Trophy } from "lucide-react"
 
-<<<<<<< HEAD
 const staticTimer = [
   { value: "00", label: "DAYS" },
   { value: "00", label: "HRS" },
@@ -25,49 +24,27 @@ export function LeaderboardHero() {
       if (diff <= 0) {
         return staticTimer
       }
-=======
-export function LeaderboardHero() {
-  const [timer, setTimer] = useState([
-    { value: "00", label: "DAYS" },
-    { value: "00", label: "HRS" },
-    { value: "00", label: "MINS" },
-    { value: "00", label: "SECS" },
-  ])
 
-  useEffect(() => {
-    const updateTimer = () => {
-      const now = new Date()
-      // Reset on the 1st of the next month at 00:00 UTC
-      const resetTime = new Date(now)
-      resetTime.setUTCMonth(now.getUTCMonth() + 1, 1)
-      resetTime.setUTCHours(0, 0, 0, 0)
->>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
-
-      const diff = resetTime.getTime() - now.getTime()
       const days = Math.floor(diff / (1000 * 60 * 60 * 24))
       const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
       const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
       const seconds = Math.floor((diff % (1000 * 60)) / 1000)
 
-      setTimer([
+      return [
         { value: String(days).padStart(2, '0'), label: "DAYS" },
         { value: String(hours).padStart(2, '0'), label: "HRS" },
         { value: String(minutes).padStart(2, '0'), label: "MINS" },
         { value: String(seconds).padStart(2, '0'), label: "SECS" },
-      ])
+      ]
     }
 
-    updateTimer()
-    const interval = setInterval(updateTimer, 1000)
+    setTimeLeft(calculateTimeLeft())
+    const interval = setInterval(() => setTimeLeft(calculateTimeLeft()), 1000)
 
     return () => clearInterval(interval)
   }, [])
   return (
-<<<<<<< HEAD
     <section className="relative rounded-xl bg-[#1a1f3a] border border-[#2a344a] card-glow overflow-hidden">
-=======
-    <section className="relative rounded-xl bg-[#120b26] border border-[#1a1033] overflow-hidden">
->>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
             <div className="relative grid lg:grid-cols-[1fr_auto] gap-6 md:gap-8 p-5 md:p-10">
         {/* Left */}
         <div>
@@ -75,11 +52,7 @@ export function LeaderboardHero() {
             LEADERBOARD
           </h1>
           <p className="mt-5 text-sm font-bold tracking-wide">
-<<<<<<< HEAD
             <span className="text-[#0969b7]">WAGER, CLIMB, WIN.</span>{" "}
-=======
-            <span className="text-[#8b3dff]">WAGER, CLIMB, WIN.</span>{" "}
->>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
             <span className="text-white/90">THE MORE YOU WAGER, THE HIGHER YOU RANK.</span>
           </p>
           <div className="mt-8 flex items-center gap-2 text-[13px] text-[#888888]">
@@ -89,27 +62,16 @@ export function LeaderboardHero() {
         </div>
 
         {/* Right - prize pool & timer */}
-<<<<<<< HEAD
         <div className="min-w-0 lg:min-w-[340px] lg:pl-10 lg:border-l lg:border-[#2a344a] pt-6 lg:pt-0 border-t lg:border-t-0 border-[#2a344a]">
           <div className="flex items-center gap-3">
             <div className="shrink-0 grid place-items-center w-11 h-11 rounded-md bg-[#1a1f3a] border border-[#2a344a]">
               <Trophy className="w-6 h-6 text-[#0969b7]" fill="#0969b7" />
-=======
-        <div className="min-w-0 lg:min-w-[340px] lg:pl-10 lg:border-l lg:border-[#1a1033] pt-6 lg:pt-0 border-t lg:border-t-0 border-[#1a1033]">
-          <div className="flex items-center gap-3">
-            <div className="shrink-0 grid place-items-center w-11 h-11 rounded-md bg-[#1a1033] border border-[#1a1033]">
-              <Trophy className="w-6 h-6 text-[#8b3dff]" fill="#8b3dff" />
->>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
             </div>
             <div className="min-w-0">
               <div className="text-[11px] font-bold tracking-[0.18em] text-[#888888]">
                 MONTHLY PRIZE POOL
               </div>
-<<<<<<< HEAD
               <div className="text-xl md:text-2xl font-extrabold text-[#0969b7]">$400.00</div>
-=======
-              <div className="text-xl md:text-2xl font-extrabold text-[#8b3dff]">$2,500.00</div>
->>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
             </div>
           </div>
 
@@ -117,14 +79,10 @@ export function LeaderboardHero() {
             RACE ENDS IN
           </div>
           <div className="mt-2 grid grid-cols-4 gap-2">
-            {timer.map((t) => (
+            {timeLeft.map((t) => (
               <div
                 key={t.label}
-<<<<<<< HEAD
                 className="min-w-0 rounded-md bg-[#1a1f3a] border border-[#2a344a] py-2.5 md:py-3 px-1 text-center"
-=======
-                className="min-w-0 rounded-md bg-[#1a1033] border border-[#1a1033] py-2.5 md:py-3 px-1 text-center"
->>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
               >
                 <div className="text-lg md:text-2xl font-extrabold text-white leading-none">{t.value}</div>
                 <div className="mt-1 text-[9px] md:text-[10px] font-bold tracking-[0.14em] md:tracking-[0.18em] text-[#888888]">

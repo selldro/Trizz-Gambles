@@ -4,27 +4,18 @@ import { TrizzLogo } from "@/components/trizz-logo"
 
 export default function SignupPage() {
   return (
-    <main className="min-h-screen text-white">
+    <main className="min-h-screen flex flex-col text-white">
       <SiteHeader />
 
-<<<<<<< HEAD
       <div className="flex-1 mx-auto max-w-[1360px] w-full px-6 py-12 flex items-center justify-center">
         <section className="w-full max-w-[440px] rounded-xl bg-[#1a1f3a] border border-[#2a344a] card-glow p-8">
-=======
-      <div className="mx-auto max-w-[1360px] px-4 md:px-6 py-12 flex items-center justify-center min-h-[calc(100vh-200px)]">
-        <section className="w-full max-w-[440px] rounded-xl bg-[#120b26] border border-[#1a1033] p-8">
->>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
           {/* Header */}
           <div className="flex flex-col items-center text-center mb-8">
             <TrizzLogo className="h-12 w-12 mb-4" />
             <h1 className="text-3xl font-black tracking-tight italic">CREATE ACCOUNT</h1>
             <p className="mt-2 text-sm text-[#888888]">
               Join{" "}
-<<<<<<< HEAD
               <span className="text-[#0969b7] font-bold">TRIZZ</span>{" "}
-=======
-              <span className="text-[#8b3dff] font-bold">ZYYN</span>{" "}
->>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
               and start earning rewards
             </p>
           </div>
@@ -49,25 +40,15 @@ export default function SignupPage() {
 
           {/* Divider */}
           <div className="my-6 flex items-center gap-3">
-<<<<<<< HEAD
             <div className="flex-1 h-px bg-[#1a1f3a]" />
             <span className="text-[10px] font-bold tracking-[0.18em] text-[#555555]">OR</span>
             <div className="flex-1 h-px bg-[#1a1f3a]" />
-=======
-            <div className="flex-1 h-px bg-[#06030f]" />
-            <span className="text-[10px] font-bold tracking-[0.18em] text-[#555555]">OR</span>
-            <div className="flex-1 h-px bg-[#06030f]" />
->>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
           </div>
 
           {/* Login link */}
           <p className="text-center text-sm text-[#888888]">
             Already have an account?{" "}
-<<<<<<< HEAD
             <a href="/login" className="text-[#0969b7] font-bold hover:underline">
-=======
-            <a href="/login" className="text-[#8b3dff] font-bold hover:underline">
->>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
               Log in
             </a>
           </p>
@@ -81,6 +62,7 @@ export default function SignupPage() {
           </p>
         </section>
       </div>
+      <Footer />
     </main>
   )
 }
