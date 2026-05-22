@@ -9,7 +9,7 @@ const mockUsers = [
   { id: 3, username: "CodeRed", email: "c*****@gmail.com", discord: "codered#5678", kick: "Connected", joined: "2025-04-26", wagered: "$5,100", status: "active" },
   { id: 4, username: "BetaKing", email: "b*****@yahoo.com", discord: "betaking#9012", kick: "Not Connected", joined: "2025-04-25", wagered: "$3,800", status: "active" },
   { id: 5, username: "VisionX", email: "v*****@outlook.com", discord: "visionx#3456", kick: "Connected", joined: "2025-04-24", wagered: "$2,600", status: "banned" },
-  { id: 6, username: "ZyynVIP", email: "z*****@gmail.com", discord: "zyynvip#7890", kick: "Connected", joined: "2025-04-23", wagered: "$1,900", status: "active" },
+  { id: 6, username: "TrizzVIP", email: "z*****@gmail.com", discord: "trizzvip#7890", kick: "Connected", joined: "2025-04-23", wagered: "$1,900", status: "active" },
 ]
 
 export function AdminUsers() {
@@ -20,18 +20,18 @@ export function AdminUsers() {
   )
 
   return (
-    <section className="rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-4 md:p-6">
+    <section className="rounded-xl bg-[#1a1f3a] border border-[#2a344a] card-glow p-4 md:p-6">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-5">
         <div className="flex items-center gap-3">
-          <Users className="w-5 h-5 text-[#00ff87]" />
+          <Users className="w-5 h-5 text-[#0969b7]" />
           <h2 className="text-[14px] font-bold tracking-[0.18em] text-white">ALL USERS</h2>
-          <span className="text-[11px] font-bold tracking-[0.16em] text-[#555555] bg-[#1a2520] px-2 py-0.5 rounded">
+          <span className="text-[11px] font-bold tracking-[0.16em] text-[#555555] bg-[#1a1f3a] px-2 py-0.5 rounded">
             {mockUsers.length} Total
           </span>
         </div>
 
-        <div className="flex items-center gap-2 rounded-md bg-[#0d1611] border border-[#1a2520] px-4 py-2 max-w-xs w-full">
+        <div className="flex items-center gap-2 rounded-md bg-[#232b4a] border border-[#2a344a] px-4 py-2 max-w-xs w-full">
           <Search className="w-4 h-4 text-[#555555]" />
           <input
             type="text"
@@ -47,7 +47,7 @@ export function AdminUsers() {
       <div className="overflow-x-auto">
         <table className="w-full text-left">
           <thead>
-            <tr className="border-b border-[#1a2520]">
+            <tr className="border-b border-[#2a344a]">
               <th className="pb-3 text-[10px] font-bold tracking-[0.18em] text-[#555555]">USER</th>
               <th className="pb-3 text-[10px] font-bold tracking-[0.18em] text-[#555555]">DISCORD</th>
               <th className="pb-3 text-[10px] font-bold tracking-[0.18em] text-[#555555]">KICK</th>
@@ -59,10 +59,10 @@ export function AdminUsers() {
           </thead>
           <tbody>
             {filtered.map((user) => (
-              <tr key={user.id} className="border-b border-[#1a2520]/50 hover:bg-[#1a2520]/30 transition-colors">
+              <tr key={user.id} className="border-b border-[#2a344a]/50 hover:bg-[#1a1f3a]/30 transition-colors">
                 <td className="py-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-md overflow-hidden bg-[#1a2520]">
+                    <div className="w-8 h-8 rounded-md overflow-hidden bg-[#1a1f3a]">
                       <img src="/Default PFP.jpg" alt={user.username} className="w-full h-full object-cover" />
                     </div>
                     <div>
@@ -73,7 +73,7 @@ export function AdminUsers() {
                 </td>
                 <td className="py-3 text-[12px] text-[#888888]">{user.discord}</td>
                 <td className="py-3">
-                  <span className={`text-[11px] font-bold ${user.kick === "Connected" ? "text-[#00ff87]" : "text-[#555555]"}`}>
+                  <span className={`text-[11px] font-bold ${user.kick === "Connected" ? "text-[#0969b7]" : "text-[#555555]"}`}>
                     {user.kick}
                   </span>
                 </td>
@@ -82,7 +82,7 @@ export function AdminUsers() {
                 <td className="py-3">
                   <span className={`text-[10px] font-bold tracking-[0.16em] px-2 py-0.5 rounded ${
                     user.status === "active"
-                      ? "bg-[#00ff87]/10 text-[#00ff87]"
+                      ? "bg-[#0969b7]/10 text-[#0969b7]"
                       : "bg-red-500/10 text-red-500"
                   }`}>
                     {user.status.toUpperCase()}

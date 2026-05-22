@@ -45,7 +45,7 @@ const tiers: Tier[] = [
   },
   {
     name: "ELITE",
-    color: "#00ff87",
+    color: "#0969b7",
     milestones: [
       { id: 10, title: "Elite I", wager: "$250K", reward: "$100", icon: Crown },
       { id: 11, title: "Elite II", wager: "$500K", reward: "$300", icon: Crown },
@@ -60,7 +60,7 @@ export function MilestonesContent() {
       {tiers.map((tier) => (
         <section
           key={tier.name}
-          className="rounded-xl bg-[#112116] border border-[#1a2520] card-glow p-4 md:p-6"
+          className="rounded-xl bg-[#1a1f3a] border border-[#2a344a] card-glow p-4 md:p-6"
         >
           {/* Milestone Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -69,7 +69,7 @@ export function MilestonesContent() {
               return (
                 <div
                   key={m.id}
-                  className="rounded-md bg-[#0d1611] border border-[#1a2520] overflow-hidden"
+                  className="rounded-md bg-[#232b4a] border border-[#2a344a] overflow-hidden"
                 >
                   {/* Top row */}
                   <div className="flex items-center justify-between px-5 py-4">
@@ -84,18 +84,18 @@ export function MilestonesContent() {
                   </div>
 
                   {/* Bottom row */}
-                  <div className="flex items-center justify-between px-5 py-3 border-t border-[#1a2520]">
+                  <div className="flex items-center justify-between px-5 py-3 border-t border-[#2a344a]">
                     <span className="text-[11px] font-bold tracking-[0.16em] text-[#888888]">REWARD</span>
                     <span className="text-xl font-extrabold" style={{ color: tier.color }}>{m.reward}</span>
                   </div>
 
                   <div className="px-5 pb-4">
                     {m.claimable ? (
-                      <button className="w-full py-2 rounded-md btn-3d-green hover:opacity-90 transition-opacity text-black text-[11px] font-bold tracking-[0.18em]">
-                        CLAIM
+                      <button disabled className="w-full py-2 rounded-md bg-[#1a1f3a] text-[#555555] text-[11px] font-bold tracking-[0.18em] cursor-not-allowed">
+                        COMING SOON
                       </button>
                     ) : (
-                      <button disabled className="w-full py-2 rounded-md bg-[#1a2520] text-[#555555] text-[11px] font-bold tracking-[0.18em] cursor-not-allowed">
+                      <button disabled className="w-full py-2 rounded-md bg-[#1a1f3a] text-[#555555] text-[11px] font-bold tracking-[0.18em] cursor-not-allowed">
                         LOCKED
                       </button>
                     )}

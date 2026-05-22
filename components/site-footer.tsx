@@ -1,18 +1,17 @@
 import { Youtube, Twitter, Instagram } from "lucide-react"
-import { ZyynLogo } from "./zyyn-logo"
+import { TrizzLogo } from "./trizz-logo"
 
 export function SiteFooter() {
   return (
-    <footer className="mt-10 border-t border-[#1a2520] bg-[#0d1611]">
+    <footer className="mt-10 border-t border-[#2a344a] bg-[#232b4a]">
       <div className="mx-auto max-w-[1360px] px-6 py-10 grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr_1fr_auto] gap-8">
         {/* Brand */}
         <div>
-          <div className="flex items-center gap-2">
-            <ZyynLogo className="h-7 w-7" />
-            <span className="text-lg font-extrabold tracking-wide text-white">ZYYN</span>
+          <div className="flex items-center">
+            <TrizzLogo className="h-8 w-8" />
           </div>
           <p className="mt-4 text-[12px] leading-relaxed text-[#888888] max-w-md">
-            We do not take responsibility for any losses from gambling in casinos and betting sites
+            We do not take responsibility for any losses from gambling in rainbet and betting sites
             which are linked or promoted on our website(s). As a player, you are responsible for your bets.
           </p>
         </div>
@@ -41,17 +40,17 @@ export function SiteFooter() {
         <div>
           <h4 className="text-white font-semibold text-sm">Socials</h4>
           <ul className="mt-3 space-y-2 text-[13px] text-[#888888]">
-            <li className="flex items-center gap-2"><Youtube className="w-4 h-4" /> YouTube</li>
-            <li className="flex items-center gap-2"><KickIcon /> Kick</li>
-            <li className="flex items-center gap-2"><Twitter className="w-4 h-4" /> Twitter</li>
-            <li className="flex items-center gap-2"><Instagram className="w-4 h-4" /> Instagram</li>
+            <li className="flex items-center gap-2"><a href="https://youtube.com/@trizzgambles" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white"><Youtube className="w-4 h-4" /> YouTube</a></li>
+            <li className="flex items-center gap-2"><a href="https://kick.com/trizzgamba" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white"><KickIcon /> Kick</a></li>
+            <li className="flex items-center gap-2"><a href="https://x.com/trizzgambles" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white"><Twitter className="w-4 h-4" /> Twitter</a></li>
+            <li className="flex items-center gap-2"><a href="https://instagram.com/trizzgambles" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white"><Instagram className="w-4 h-4" /> Instagram</a></li>
             <li className="flex items-center gap-2"><DiscordIcon /> Discord</li>
           </ul>
         </div>
 
         {/* Copyright */}
         <div className="md:text-right md:self-end text-[12px] text-[#888888]">
-          © 2024 Zyyn. All rights reserved.
+          © 2024 Trizz. All rights reserved.
         </div>
       </div>
     </footer>
