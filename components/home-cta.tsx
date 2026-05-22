@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react"
 
 export function HomeCta() {
   return (
+<<<<<<< HEAD
     <section className="relative rounded-xl bg-[#1a1f3a] border border-[#2a344a] card-glow overflow-hidden p-6 md:p-10">
       <div
         aria-hidden
@@ -12,6 +13,10 @@ export function HomeCta() {
         }}
       />
       <div className="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+=======
+    <section className="relative rounded-xl bg-[#120b26] border border-[#1a1033] p-6 md:p-10">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+>>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
         <div>
           <h2 className="text-2xl md:text-4xl font-black italic font-[family-name:var(--font-heading)] text-white">
             READY TO CLIMB?
@@ -30,7 +35,11 @@ export function HomeCta() {
           </a>
           <a
             href="/leaderboard"
+<<<<<<< HEAD
             className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-[#0969b7] text-[#0969b7] text-[13px] font-bold tracking-[0.14em] hover:bg-[#0969b7]/10 transition-colors"
+=======
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-md border border-[#8b3dff] text-[#8b3dff] text-[13px] font-bold tracking-[0.14em] hover:bg-[#8b3dff]/10 transition-colors"
+>>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
           >
             VIEW LEADERBOARD
           </a>

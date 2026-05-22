@@ -89,9 +89,15 @@ export function ChallengesContent() {
   return (
     <div className="mt-5 space-y-5">
       {/* Search + Tabs */}
+<<<<<<< HEAD
       <section className="rounded-xl bg-[#1a1f3a] border border-[#2a344a] card-glow p-4 md:p-6">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="flex items-center gap-2 rounded-md bg-[#232b4a] border border-[#2a344a] px-4 py-2 max-w-sm w-full">
+=======
+      <section className="rounded-xl bg-[#120b26] border border-[#1a1033] p-4 md:p-6">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div className="flex items-center gap-2 rounded-md bg-[#06030f] border border-[#1a1033] px-4 py-2 max-w-sm w-full">
+>>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
             <Search className="w-4 h-4 text-[#555555]" />
             <input
               type="text"
@@ -102,7 +108,11 @@ export function ChallengesContent() {
             />
           </div>
 
+<<<<<<< HEAD
           <div className="flex items-center gap-1 rounded-md bg-[#232b4a] border border-[#2a344a] p-1 overflow-x-auto">
+=======
+          <div className="flex items-center gap-1 rounded-md bg-[#06030f] border border-[#1a1033] p-1 overflow-x-auto">
+>>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
             {([
               { key: "all", label: `ALL ${challenges.length}` },
               { key: "active", label: `ACTIVE ${activeCount}` },
@@ -113,7 +123,11 @@ export function ChallengesContent() {
                 onClick={() => setFilter(tab.key)}
                 className={`px-4 py-1.5 rounded text-[11px] font-bold tracking-[0.16em] transition-colors ${
                   filter === tab.key
+<<<<<<< HEAD
                     ? "bg-[#0969b7] text-black"
+=======
+                    ? "bg-[#8b3dff] text-black"
+>>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
                     : "text-[#888888] hover:text-white"
                 }`}
               >
@@ -129,22 +143,37 @@ export function ChallengesContent() {
           <span className="text-[12px] font-bold tracking-[0.16em] text-[#888888]">
             ALL CHALLENGES
           </span>
+<<<<<<< HEAD
           <span className="text-[11px] font-bold tracking-[0.16em] text-[#555555] bg-[#1a1f3a] px-2 py-0.5 rounded">
+=======
+          <span className="text-[11px] font-bold tracking-[0.16em] text-[#555555] bg-[#1a1033] px-2 py-0.5 rounded">
+>>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
             {filtered.length} Results
           </span>
         </div>
       </section>
 
       {/* Cards Grid */}
+<<<<<<< HEAD
       <section className="rounded-xl bg-[#1a1f3a] border border-[#2a344a] card-glow p-4 md:p-6">
+=======
+      <section className="rounded-xl bg-[#120b26] border border-[#1a1033] p-4 md:p-6">
+>>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {filtered.map((c) => (
             <div
               key={c.id}
+<<<<<<< HEAD
               className="rounded-md bg-[#232b4a] border border-[#2a344a] overflow-hidden flex flex-col"
             >
               {/* Image area */}
               <div className="relative h-40 bg-[#232b4a] overflow-hidden">
+=======
+              className="rounded-md bg-[#06030f] border border-[#1a1033] overflow-hidden flex flex-col"
+            >
+              {/* Image area */}
+              <div className="relative h-40 bg-[#06030f] overflow-hidden">
+>>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
                 <img src={c.image} alt={c.name} className="w-full h-full object-cover" />
             </div>
 
@@ -155,6 +184,7 @@ export function ChallengesContent() {
 
               {/* Stats row */}
               <div className="grid grid-cols-3 gap-2 mb-4">
+<<<<<<< HEAD
                 <div className="rounded-md bg-[#232b4a] border border-[#2a344a] py-2 text-center">
                   <div className="text-[9px] font-bold tracking-[0.16em] text-[#555555]">PRIZE</div>
                   <div className="text-[14px] font-extrabold text-[#0969b7]">{c.prize}</div>
@@ -166,6 +196,19 @@ export function ChallengesContent() {
                 <div className="rounded-md bg-[#232b4a] border border-[#2a344a] py-2 text-center">
                   <div className="text-[9px] font-bold tracking-[0.16em] text-[#555555]">TARGET</div>
                   <div className="text-[14px] font-extrabold text-[#0969b7]">{c.target}</div>
+=======
+                <div className="rounded-md bg-[#06030f] border border-[#1a1033] py-2 text-center">
+                  <div className="text-[9px] font-bold tracking-[0.16em] text-[#555555]">PRIZE</div>
+                  <div className="text-[14px] font-extrabold text-[#8b3dff]">{c.prize}</div>
+                </div>
+                <div className="rounded-md bg-[#06030f] border border-[#1a1033] py-2 text-center">
+                  <div className="text-[9px] font-bold tracking-[0.16em] text-[#555555]">MIN BET</div>
+                  <div className="text-[14px] font-extrabold text-[#8b3dff]">{c.minBet}</div>
+                </div>
+                <div className="rounded-md bg-[#06030f] border border-[#1a1033] py-2 text-center">
+                  <div className="text-[9px] font-bold tracking-[0.16em] text-[#555555]">TARGET</div>
+                  <div className="text-[14px] font-extrabold text-[#8b3dff]">{c.target}</div>
+>>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
                 </div>
               </div>
 
@@ -177,9 +220,15 @@ export function ChallengesContent() {
                 </div>
                 <span className="text-[11px] text-[#888888]">{c.claimedPercent}%</span>
               </div>
+<<<<<<< HEAD
               <div className="w-full bg-[#1a1f3a] rounded-full h-1.5 mb-3 overflow-hidden">
                 <div
                   className="h-full bg-[#0969b7] rounded-full"
+=======
+              <div className="w-full bg-[#1a1033] rounded-full h-1.5 mb-3 overflow-hidden">
+                <div
+                  className="h-full bg-[#8b3dff] rounded-full"
+>>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
                   style={{ width: `${c.claimedPercent}%` }}
                 />
               </div>
@@ -193,7 +242,11 @@ export function ChallengesContent() {
                       {c.winners.map((w, i) => (
                         <span
                           key={i}
+<<<<<<< HEAD
                           className="bg-[#1a1f3a] border border-[#2a344a] px-2 py-0.5 rounded text-[10px] font-bold text-[#0969b7]"
+=======
+                          className="bg-[#1a1033] border border-[#1a1033] px-2 py-0.5 rounded text-[10px] font-bold text-[#8b3dff]"
+>>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
                         >
                           {w}
                         </span>
@@ -214,7 +267,11 @@ export function ChallengesContent() {
                 ) : (
                   <button
                     disabled
+<<<<<<< HEAD
                     className="w-full py-2.5 rounded-md bg-[#1a1f3a] text-[#555555] text-[12px] font-bold tracking-[0.18em] cursor-not-allowed"
+=======
+                    className="w-full py-2.5 rounded-md bg-[#1a1033] text-[#555555] text-[12px] font-bold tracking-[0.18em] cursor-not-allowed"
+>>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
                   >
                     CHALLENGE ENDED
                   </button>

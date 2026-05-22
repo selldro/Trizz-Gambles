@@ -2,7 +2,11 @@ import { LogOut, Wallet } from "lucide-react"
 
 export function DashboardProfile() {
   return (
+<<<<<<< HEAD
     <section className="rounded-xl bg-[#1a1f3a] border border-[#2a344a] card-glow p-6">
+=======
+    <section className="rounded-xl bg-[#112116] border border-[#1a2520] p-6">
+>>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
       <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
         {/* Left - User Info */}
         <div className="flex items-center gap-4">

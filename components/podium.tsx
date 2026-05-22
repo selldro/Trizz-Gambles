@@ -26,7 +26,11 @@ export function Podium({
   const p2 = second ?? defaultEntries.second
   const p3 = third ?? defaultEntries.third
   return (
+<<<<<<< HEAD
     <section className="relative rounded-xl bg-[#1a1f3a] border border-[#2a344a] card-glow overflow-hidden mt-5">
+=======
+    <section className="relative rounded-xl bg-[#120b26] border border-[#1a1033] overflow-hidden mt-5">
+>>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
             
       {/* Trapezoid gold pedestal - spans full card height */}
       <div className="pointer-events-none absolute inset-0 z-0">
@@ -88,7 +92,11 @@ export function Podium({
               WAGERED
             </div>
             <div className="mt-1 text-base md:text-2xl font-extrabold text-[#fbbf24]">{p1.wagered}</div>
+<<<<<<< HEAD
           <div className="mt-1 md:mt-2 flex items-center gap-1 text-[#0969b7] font-semibold">
+=======
+          <div className="mt-1 md:mt-2 flex items-center gap-1 text-[#8b3dff] font-semibold">
+>>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
         <Gift className="w-3 h-3 md:w-4 md:h-4" />
         <span className="text-xs md:text-base">{p1.reward}</span>
       </div>
@@ -150,7 +158,11 @@ function PodiumCard({
       <div className="mt-1 text-sm md:text-xl font-extrabold" style={{ color: wageredColor }}>
         {wagered}
       </div>
+<<<<<<< HEAD
       <div className="mt-1 md:mt-2 flex items-center gap-1 text-[#0969b7] font-semibold">
+=======
+      <div className="mt-1 md:mt-2 flex items-center gap-1 text-[#8b3dff] font-semibold">
+>>>>>>> 0ab98f1026ba421f87062ada3c6c0abbd3abafff
         <Gift className="w-3 h-3" />
         <span className="text-[11px] md:text-sm">{reward}</span>
       </div>
