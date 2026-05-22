@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
   const apiKey = 'uU42Vpuv8XRtMk5dxVSPRaxpHIIENCyo'
   const startDate = '2026-05-01'
@@ -14,6 +16,7 @@ export async function GET() {
 
   try {
     const response = await fetch(url.toString(), {
+      cache: 'no-store',
       headers: {
         'Accept': 'application/json',
       },
