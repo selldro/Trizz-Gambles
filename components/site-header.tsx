@@ -32,8 +32,8 @@ export function SiteHeader() {
 
             {/* Right */}
             <div className="flex items-center justify-end gap-2 md:gap-3">
-              {/* Balance */}
-              <div className="flex items-center gap-1 md:gap-2 rounded-md bg-[#232b4a] border border-[#2a344a] pl-2 md:pl-3 pr-1 py-1">
+              {/* Balance - desktop only */}
+              <div className="hidden md:flex items-center gap-2 rounded-md bg-[#232b4a] border border-[#2a344a] pl-3 pr-1 py-1">
                 <div className="flex items-center gap-1.5">
                   <Coins className="w-4 h-4 text-[#0969b7]" fill="#0969b7" />
                   <span className="text-sm font-semibold text-white">0</span>
@@ -48,7 +48,7 @@ export function SiteHeader() {
               </div>
 
               {/* Login - hidden on mobile */}
-              <a href="/login" className="hidden md:inline-block px-4 py-2 rounded-md btn-3d-blue text-[13px] font-bold tracking-[0.14em]">
+              <a href="/login" className="hidden md:inline-block px-4 py-2 rounded-md btn-3d-blue text-white text-[13px] font-bold tracking-[0.14em]">
                 LOGIN
               </a>
 
@@ -71,13 +71,29 @@ export function SiteHeader() {
           {/* Mobile menu */}
           {open && (
             <div className="lg:hidden mt-3 pt-3 border-t border-[#2a344a]">
+              {/* Balance - mobile */}
+              <div className="flex items-center justify-between rounded-md bg-[#232b4a] border border-[#2a344a] px-4 py-3 mb-3">
+                <div className="flex items-center gap-2">
+                  <Coins className="w-5 h-5 text-[#0969b7]" fill="#0969b7" />
+                  <span className="text-[13px] font-bold tracking-[0.1em] text-[#888888]">POINTS</span>
+                  <span className="text-[15px] font-extrabold text-white">0</span>
+                </div>
+                <a
+                  href="/login"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-md btn-3d-blue text-white text-[12px] font-bold tracking-[0.12em]"
+                >
+                  <Plus className="w-3.5 h-3.5" strokeWidth={3} />
+                  ADD
+                </a>
+              </div>
+
               <nav className="flex flex-col text-[13px] font-bold tracking-[0.18em]">
                 <a href="/leaderboard" onClick={() => setOpen(false)} className={`px-3 py-3 rounded-md ${linkClass('/leaderboard')}`}>LEADERBOARD</a>
                 <a href="/milestones" onClick={() => setOpen(false)} className={`px-3 py-3 rounded-md ${linkClass('/milestones')}`}>MILESTONES</a>
                 <a href="/store" onClick={() => setOpen(false)} className={`px-3 py-3 rounded-md ${linkClass('/store')}`}>STORE</a>
               </nav>
               <div className="mt-2 grid grid-cols-2 gap-2">
-                <a href="/login" className="text-center px-4 py-2.5 rounded-md btn-3d-blue text-black text-[13px] font-bold tracking-[0.14em]">LOGIN</a>
+                <a href="/login" className="text-center px-4 py-2.5 rounded-md btn-3d-blue text-white text-[13px] font-bold tracking-[0.14em]">LOGIN</a>
                 <a href="/signup" className="text-center px-4 py-2.5 rounded-md border border-[#0969b7] text-[#0969b7] text-[13px] font-bold tracking-[0.14em]">SIGNUP</a>
               </div>
             </div>
