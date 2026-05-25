@@ -29,7 +29,7 @@ export function Podium({
     <section className="relative rounded-xl bg-[#1a1f3a] border border-[#2a344a] card-glow overflow-hidden mt-5">
             
       {/* Trapezoid gold pedestal - spans full card height */}
-      <div className="pointer-events-none absolute inset-0 z-0">
+      <div className="hidden md:block pointer-events-none absolute inset-0 z-0">
         <div
           className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[26%]"
           style={{

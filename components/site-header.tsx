@@ -79,9 +79,6 @@ export function SiteHeader() {
               <div className="mt-2 grid grid-cols-2 gap-2">
                 <a href="/login" className="text-center px-4 py-2.5 rounded-md btn-3d-blue text-black text-[13px] font-bold tracking-[0.14em]">LOGIN</a>
                 <a href="/signup" className="text-center px-4 py-2.5 rounded-md border border-[#0969b7] text-[#0969b7] text-[13px] font-bold tracking-[0.14em]">SIGNUP</a>
-                <a href="/dashboard" className="col-span-2 flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-[#232b4a] border border-[#2a344a] text-white text-[13px] font-bold tracking-[0.14em]">
-                  DASHBOARD
-                </a>
               </div>
             </div>
           )}
