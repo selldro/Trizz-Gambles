@@ -54,6 +54,17 @@ export async function GET() {
 
   console.log('[luxdrop] Fetching:', url.toString())
 
+  // Diagnostic: report our outbound IP so it can be whitelisted by Luxdrop
+  let outboundIp: string | null = null
+  try {
+    const ipRes = await fetch('https://api.ipify.org?format=json', { cache: 'no-store' })
+    const ipJson = await ipRes.json()
+    outboundIp = ipJson.ip
+    console.log('[luxdrop] Outbound IP:', outboundIp)
+  } catch (e) {
+    console.log('[luxdrop] Could not detect outbound IP:', e)
+  }
+
   try {
     const response = await fetch(url.toString(), {
       cache: 'no-store',
@@ -70,7 +81,7 @@ export async function GET() {
 
     if (!response.ok) {
       return NextResponse.json(
-        { error: true, message: `API error: ${response.status}`, details: text.slice(0, 500) },
+        { error: true, message: `API error: ${response.status}`, details: text.slice(0, 500), outboundIp },
         { status: response.status }
       )
     }
