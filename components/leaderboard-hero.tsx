@@ -14,8 +14,8 @@ export function LeaderboardHero() {
   const [timeLeft, setTimeLeft] = useState(staticTimer)
 
   useEffect(() => {
-    // Fixed date range: May 1, 2026 to June 1, 2026
-    const endTime = new Date('2026-06-01T00:00:00').getTime()
+    // Fixed date range: June 1, 2026 to July 1, 2026
+    const endTime = new Date('2026-07-01T00:00:00').getTime()
 
     const calculateTimeLeft = () => {
       const now = Date.now()
@@ -71,7 +71,7 @@ export function LeaderboardHero() {
               <div className="text-[11px] font-bold tracking-[0.18em] text-[#888888]">
                 MONTHLY PRIZE POOL
               </div>
-              <div className="text-xl md:text-2xl font-extrabold text-[#0969b7]">$400.00</div>
+              <div className="text-xl md:text-2xl font-extrabold text-[#0969b7]">$1,000</div>
             </div>
           </div>
 
