@@ -61,21 +61,21 @@ export function LeaderboardView() {
     name: sortedData[0].username,
     avatar: sortedData[0].avatar || "/Default PFP.jpg",
     wagered: formatMoney(sortedData[0].wager),
-    reward: formatMoney(200),
+    reward: formatMoney(500),
   } : undefined
 
   const podiumSecond: PodiumEntry | undefined = sortedData[1] ? {
     name: sortedData[1].username,
     avatar: sortedData[1].avatar || "/Default PFP.jpg",
     wagered: formatMoney(sortedData[1].wager),
-    reward: formatMoney(100),
+    reward: formatMoney(250),
   } : undefined
 
   const podiumThird: PodiumEntry | undefined = sortedData[2] ? {
     name: sortedData[2].username,
     avatar: sortedData[2].avatar || "/Default PFP.jpg",
     wagered: formatMoney(sortedData[2].wager),
-    reward: formatMoney(50),
+    reward: formatMoney(150),
   } : undefined
 
   const tableRows: Row[] = sortedData.slice(3).map((item, index) => ({
@@ -83,7 +83,7 @@ export function LeaderboardView() {
     name: item.username,
     avatar: item.avatar || "/Default PFP.jpg",
     wagered: formatMoney(item.wager),
-    reward: formatMoney(index === 0 ? 50 : 0),
+    reward: formatMoney(index === 0 ? 50 : index === 1 ? 50 : 0),
   }))
 
   if (loading) {
