@@ -4,8 +4,8 @@ export const dynamic = 'force-dynamic'
 
 export async function GET() {
   const apiKey = 'uU42Vpuv8XRtMk5dxVSPRaxpHIIENCyo'
-  const startDate = '2026-05-01'
-  const endDate = '2026-06-01'
+  const startDate = '2026-06-01'
+  const endDate = '2026-07-01'
   
   const url = new URL('https://services.rainbet.com/v1/external/affiliates')
   url.searchParams.append('start_at', startDate)

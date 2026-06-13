@@ -4,8 +4,8 @@ export const dynamic = 'force-dynamic'
 
 const API_KEY = 'f1d322e3533771298f860527a5911dfd8ab1961fcde8afe4ac9bc38cc7e71cc7'
 const CODES = 'trizz'
-const START_DATE = '2026-05-01'
-const END_DATE = '2026-06-01'
+const START_DATE = '2026-06-01'
+const END_DATE = '2026-07-01'
 
 function pickWager(item: any): number {
   return Number(
