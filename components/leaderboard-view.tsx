@@ -21,7 +21,7 @@ function formatMoney(n: number) {
   return `$${n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
 }
 
-type Site = "rainbet" | "luxdrop"
+type Site = "rainbet" | "luxdrop" | "krush"
 
 export function LeaderboardView() {
   const [affiliatesData, setAffiliatesData] = useState<AffiliateData[]>([])
@@ -34,7 +34,7 @@ export function LeaderboardView() {
       try {
         setLoading(true)
         setError(null)
-        const endpoint = site === "luxdrop" ? '/api/luxdrop' : '/api/affiliates'
+        const endpoint = site === "luxdrop" ? '/api/luxdrop' : site === "krush" ? '/api/krush' : '/api/affiliates'
         const response = await fetch(endpoint)
         const json: ApiResponse = await response.json()
 
@@ -145,9 +145,10 @@ function SiteSwitcher({ site, onChange }: { site: Site; onChange: (s: Site) => v
   const tabs: { key: Site; label: string }[] = [
     { key: "rainbet", label: "RAINBET" },
     { key: "luxdrop", label: "LUXDROP" },
+    { key: "krush", label: "KRUSH" },
   ]
   return (
-    <div className="mt-5 grid grid-cols-2 gap-1 rounded-md bg-[#1a1f3a] border border-[#2a344a] p-1">
+    <div className="mt-5 grid grid-cols-3 gap-1 rounded-md bg-[#1a1f3a] border border-[#2a344a] p-1">
       {tabs.map((t) => {
         const active = site === t.key
         return (
