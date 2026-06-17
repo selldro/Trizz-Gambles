@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react"
 import { Info, Trophy } from "lucide-react"
 
+type Site = "rainbet" | "luxdrop" | "krush"
+
 const staticTimer = [
   { value: "00", label: "DAYS" },
   { value: "00", label: "HRS" },
@@ -10,12 +12,14 @@ const staticTimer = [
   { value: "00", label: "SECS" },
 ]
 
-export function LeaderboardHero() {
+export function LeaderboardHero({ site }: { site: Site }) {
   const [timeLeft, setTimeLeft] = useState(staticTimer)
 
   useEffect(() => {
-    // Fixed date range: June 1, 2026 to July 1, 2026
-    const endTime = new Date('2026-07-01T00:00:00').getTime()
+    // Different end dates per site
+    const endTime = site === "krush"
+      ? new Date('2026-07-17T00:00:00').getTime() // Krush: June 17 - July 17
+      : new Date('2026-07-01T00:00:00').getTime() // Rainbet/Luxdrop: June 1 - July 1
 
     const calculateTimeLeft = () => {
       const now = Date.now()
@@ -71,7 +75,9 @@ export function LeaderboardHero() {
               <div className="text-[11px] font-bold tracking-[0.18em] text-[#888888]">
                 MONTHLY PRIZE POOL
               </div>
-              <div className="text-xl md:text-2xl font-extrabold text-[#0969b7]">$1,000</div>
+              <div className="text-xl md:text-2xl font-extrabold text-[#0969b7]">
+                {site === "krush" ? "$500" : "$1,000"}
+              </div>
             </div>
           </div>
 

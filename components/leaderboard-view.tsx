@@ -56,26 +56,31 @@ export function LeaderboardView() {
 
   // Build podium and table data from affiliates
   const sortedData = [...affiliatesData].sort((a, b) => b.wager - a.wager)
-  
+
+  // Prize structure per site
+  const prizes = site === "krush"
+    ? { first: 250, second: 150, third: 50, fourth: 50, fifth: 0 } // Krush: $500 total
+    : { first: 500, second: 250, third: 150, fourth: 50, fifth: 50 } // Rainbet/Luxdrop: $1000 total
+
   const podiumFirst: PodiumEntry | undefined = sortedData[0] ? {
     name: sortedData[0].username,
     avatar: sortedData[0].avatar || "/Default PFP.jpg",
     wagered: formatMoney(sortedData[0].wager),
-    reward: formatMoney(500),
+    reward: formatMoney(prizes.first),
   } : undefined
 
   const podiumSecond: PodiumEntry | undefined = sortedData[1] ? {
     name: sortedData[1].username,
     avatar: sortedData[1].avatar || "/Default PFP.jpg",
     wagered: formatMoney(sortedData[1].wager),
-    reward: formatMoney(250),
+    reward: formatMoney(prizes.second),
   } : undefined
 
   const podiumThird: PodiumEntry | undefined = sortedData[2] ? {
     name: sortedData[2].username,
     avatar: sortedData[2].avatar || "/Default PFP.jpg",
     wagered: formatMoney(sortedData[2].wager),
-    reward: formatMoney(150),
+    reward: formatMoney(prizes.third),
   } : undefined
 
   const tableRows: Row[] = sortedData.slice(3).map((item, index) => ({
@@ -83,13 +88,13 @@ export function LeaderboardView() {
     name: item.username,
     avatar: item.avatar || "/Default PFP.jpg",
     wagered: formatMoney(item.wager),
-    reward: formatMoney(index === 0 ? 50 : index === 1 ? 50 : 0),
+    reward: formatMoney(index === 0 ? prizes.fourth : index === 1 ? prizes.fifth : 0),
   }))
 
   if (loading) {
     return (
       <>
-        <LeaderboardHero />
+        <LeaderboardHero site={site} />
         <SiteSwitcher site={site} onChange={setSite} />
         <div className="mt-5 rounded-xl bg-[#1a1f3a] border border-[#2a344a] card-glow p-6 text-center text-[#888888] text-sm">
           Loading leaderboard...
@@ -101,7 +106,7 @@ export function LeaderboardView() {
   if (error) {
     return (
       <>
-        <LeaderboardHero />
+        <LeaderboardHero site={site} />
         <SiteSwitcher site={site} onChange={setSite} />
         <div className="mt-5 rounded-xl bg-[#1a1f3a] border border-red-500/30 p-6 text-center text-red-400 text-sm">
           {error}
@@ -113,7 +118,7 @@ export function LeaderboardView() {
   if (affiliatesData.length === 0) {
     return (
       <>
-        <LeaderboardHero />
+        <LeaderboardHero site={site} />
         <SiteSwitcher site={site} onChange={setSite} />
         <div className="mt-5 rounded-xl bg-[#1a1f3a] border border-[#2a344a] card-glow p-6 text-center text-[#888888] text-sm">
           No participants yet. Be the first to join the leaderboard!
@@ -125,7 +130,7 @@ export function LeaderboardView() {
   return (
     <>
       {/* Hero */}
-      <LeaderboardHero />
+      <LeaderboardHero site={site} />
 
       {/* Site switcher */}
       <SiteSwitcher site={site} onChange={setSite} />
