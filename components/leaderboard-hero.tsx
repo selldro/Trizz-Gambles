@@ -46,7 +46,7 @@ export function LeaderboardHero({ site }: { site: Site }) {
     const interval = setInterval(() => setTimeLeft(calculateTimeLeft()), 1000)
 
     return () => clearInterval(interval)
-  }, [])
+  }, [site])
   return (
     <section className="relative rounded-xl bg-[#1a1f3a] border border-[#2a344a] card-glow overflow-hidden">
             <div className="relative grid lg:grid-cols-[1fr_auto] gap-6 md:gap-8 p-5 md:p-10">
